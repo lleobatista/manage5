@@ -5,6 +5,9 @@
  */
 package App;
 
+import br.com.Cadastro.PosteGreJPA.FuncionarioJpaController;
+import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.Cadastro.PosteGreJPA.exceptions.NonexistentEntityException;
 import br.com.DomainMode.PostGresJPA.LoginSenha;
 import br.com.DomainMode.PostGresJPA.LoginSenhaJpaController;
 import java.util.List;
@@ -22,6 +25,9 @@ public class Aplicativo {
 
         EntityManagerFactory objFactory = Persistence.createEntityManagerFactory("PostGresJPAPU");
         EntityManager manager = objFactory.createEntityManager();
+        
+        FuncionarioJpaController jpa = new FuncionarioJpaController(objFactory);
+        Funcionario fnr = new Funcionario();
 
         LoginSenhaJpaController jpa = new LoginSenhaJpaController(objFactory);
         List<LoginSenha> lista = jpa.findLoginSenhaEntities();
