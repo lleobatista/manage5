@@ -10,5 +10,8 @@ package Check;
  * @author leandrocnb
  */
 public class Validacao {
+    public boolean validaNome(String nome){
+        
+    }
     
 }
