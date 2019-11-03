@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public class FunçõesProdutoTest {
 
     Produtos pd;
-    FunçõesProduto fp;
+    TestesFuncionais fp;
 
     public FunçõesProdutoTest() {
     }
@@ -36,7 +36,7 @@ public class FunçõesProdutoTest {
     @Before
     public void setUp() {
         pd = new Produtos();
-        fp = new FunçõesProduto();
+        fp = new TestesFuncionais();
     }
 
     @After
@@ -44,7 +44,7 @@ public class FunçõesProdutoTest {
     }
 
     /**
-     * Test of validaNomeProduto method, of class FunçõesProduto.
+     * Test of validaNomeProduto method, of class TestesFuncionais.
      *
      * @throws java.lang.Exception
      */
