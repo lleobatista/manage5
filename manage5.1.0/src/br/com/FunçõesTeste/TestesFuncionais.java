@@ -65,186 +65,186 @@ public class TestesFuncionais {
     }
     
     //Método para valida Nome
-    public boolean validaNome(String nome){
+    public boolean validaNome(String nome) throws Exception{
         if(nome.length() < 5 || nome.length() > 50){
-            return false;
+            throw new Exception("Nome Inválido");
         }
         else if(nome.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Nome Inválido");
         }
         else if(nome.matches(".*[0|1|2|3|4|5|6|7|8|9].*")){
-            return false;
+            throw new Exception("Nome Inválido");
         }
         return true;
     }
     
     //Método para valida RG
-    public boolean validaRG(String rg){
+    public boolean validaRG(String rg) throws Exception{
         String RG = "\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d";
         if(rg.matches(".*\\D^.^-.*")){
-            return false;
+            throw new Exception("RG Inválido");
         }
         else if(rg.length() < 12 || rg.length() > 12){
-            return false;
+            throw new Exception("RG Inválido");
         }
         else if(!rg.matches(RG)){
-            return false;
+            throw new Exception("RG Inválido");
         }
         return true;
     }
     
     //Método para valida CPF
-    public boolean validaCPF(String cpf){
+    public boolean validaCPF(String cpf) throws Exception{
         String CPF = "\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d";
         if(cpf.matches(".*\\D^.^-.*")){
-            return false;
+            throw new Exception("CPF Inválido");
         }
         else if(cpf.length() < 14 || cpf.length() > 14){
-            return false;
+            throw new Exception("CPF Inválido");
         }
         else if(!cpf.matches(CPF)){
-            return false;
+            throw new Exception("CPF Inválido");
         }
         return true;
     }
     
     //Método para valida Data de Nascimento
-    public boolean validaDataDeNascimento(String dataDeNascimento){
+    public boolean validaDataDeNascimento(String dataDeNascimento) throws Exception{
         String Ddn = "\\d\\d/\\d\\d/\\d\\d\\d\\d";
         if(dataDeNascimento.matches(".*\\D^/.*")){
-            return false;
+            throw new Exception("Data de Nascimento Inválida");
         }
         else if(dataDeNascimento.length() < 10 || dataDeNascimento.length() > 10){
-            return false;
+            throw new Exception("Data de Nascimento Inválida");
         }
         else if(!dataDeNascimento.matches(Ddn)){
-            return false;
+            throw new Exception("Data de Nascimento Inválida");
         }
         return true;
     }
     
     //Método para validar Carteira de Trabalho
-    public boolean validaCarteiraDeTrabalho(String carteiraDeTrabalho){
+    public boolean validaCarteiraDeTrabalho(String carteiraDeTrabalho) throws Exception{
         String Cdt = "\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\d";
         if(carteiraDeTrabalho.matches(".*\\D^-.*")){
-            return false;
+            throw new Exception("Carteira de Trabalho Inválida");
         }
         else if(carteiraDeTrabalho.length() < 13 || carteiraDeTrabalho.length() > 13){
-            return false;
+            throw new Exception("Carteira de Trabalho Inválida");
         }
         else if(!carteiraDeTrabalho.matches(Cdt)){
-            return false;
+            throw new Exception("Carteira de Trabalho Inválida");
         }
         return true;
     }
     
     //Método para validar CEP
-    public boolean validaCEP(String cep){
+    public boolean validaCEP(String cep) throws Exception{
         String CEP = "\\d\\d\\d\\d\\d-\\d\\d\\d";
         if(cep.matches(".*\\D^-.*")){
-            return false;
+            throw new Exception("CEP Inválido");
         }
         else if(cep.length() < 9 || cep.length() > 9){
-            return false;
+            throw new Exception("CEP Inválido");
         }
         else if(!cep.matches(CEP)){
-            return false;
+            throw new Exception("CEP Inválido");           
         }
         return true;
     }
     
     //Método para validar Logradouro
-    public boolean validaLogradouro(String logradouro){
+    public boolean validaLogradouro(String logradouro) throws Exception{
         if(logradouro.length() < 2 || logradouro.length() > 50){
-            return false;
+            throw new Exception("Logradouro Inválido");
         }
         else if(logradouro.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Logradouro Inválido");
         }
         return true;
     }
     
     //Método para validar Numero
-    public boolean validaNumero(String numero){
+    public boolean validaNumero(String numero) throws Exception{
         if(numero.length() < 1 || numero.length() > 6){
-            return false;
+            throw new Exception("Número Invalido");
         }
         else if(numero.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Número Invalido");
         }
         return true;
     }
     
     //Método para validar Complemento
-    public boolean validaComplemento(String complemento){
+    public boolean validaComplemento(String complemento) throws Exception{
         if(complemento.length() > 50){
-            return false;
+            throw new Exception("Complemento Inválido");
         }
         else if(complemento.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Complemento Inválido");
         }
         return true;
     }
     
     //Método para validar Bairro
-    public boolean validaBairro(String bairro){
+    public boolean validaBairro(String bairro) throws Exception{
         if(bairro.length() < 2 || bairro.length() > 50){
-            return false;
+            throw new Exception("Bairro Inválido");
         }
         else if(bairro.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Bairro Inválido");
         }
         return true;
     }
     
     //Método para validar Cidade
-    public boolean validaCidade(String cidade){
+    public boolean validaCidade(String cidade) throws Exception{
         if(cidade.length() < 2 || cidade.length() > 50){
-            return false;
+            throw new Exception("Cidade Inválida");
         }
         else if(cidade.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Cidade Inválida");
         }
         return true;
     }
     
     //Método para validar Estado
-    public boolean validaEstado(String estado){
+    public boolean validaEstado(String estado) throws Exception{
         if(estado.length() < 2 || estado.length() > 2){
-            return false;
+            throw new Exception("Estado Inválido");
         }
         else if(estado.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
-            return false;
+            throw new Exception("Estado Inválido");
         }
         return true;
     }
     
-    //Método para validar Titulo de Eleitor
-    public boolean validaTituloDeEleitor(String tituloDeEleitor){
+    //Método para validar Título de Eleitor
+    public boolean validaTituloDeEleitor(String tituloDeEleitor) throws Exception{
         String Tde = "\\d\\d\\d\\d \\d\\d\\d\\d \\d\\d\\d\\d";
         if(tituloDeEleitor.length() < 14 || tituloDeEleitor.length() > 14){
-            return false;
+            throw new Exception("Título de Eleitor Inválido");
         }
         else if(tituloDeEleitor.matches(".*\\D^-.*")){
-            return false;
+            throw new Exception("Título de Eleitor Inválido");
         }
         else if(!tituloDeEleitor.matches(Tde)){
-            return false;
+            throw new Exception("Título de Eleitor Inválido");
         }
         return true;
     }
     
     //Método para validar Cartão do Programa Integração Social (PIS)
-    public boolean validaProgramIntegacaoSocila(String programaIntegracaoSocial){
+    public boolean validaProgramIntegacaoSocial(String programaIntegracaoSocial) throws Exception{
         String Pis = "\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d.\\d";
         if(programaIntegracaoSocial.length() < 14 || programaIntegracaoSocial.length() > 14){
-            return false;
+            throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
         else if(programaIntegracaoSocial.matches(".*\\D^-.*")){
-            return false;
+            throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
         else if(!programaIntegracaoSocial.matches(Pis)){
-            return false;
+            throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
         return true;
     }
