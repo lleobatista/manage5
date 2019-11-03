@@ -11,10 +11,8 @@ package br.com.FunçõesTeste;
  */
 public class TestesFuncionais {
     
-    
-
+    //Método valida Nome do Produto
     public boolean validaNomeProduto(String nome) throws Exception {
-
         if (nome.length() > 2 && nome.length() < 51) {
             if (nome.matches("([a-zA-Z]+\\ ?)+")) {
                 return true;
@@ -25,9 +23,9 @@ public class TestesFuncionais {
             throw new Exception("Nome invalido");
         }
     }
-
+    
+    //Método validar Descrição do Produto
     public boolean validaDescriçãoProduto(String descr) throws Exception {
-
         if (descr.length() < 101) {
             return true;
         } else {
@@ -35,8 +33,8 @@ public class TestesFuncionais {
         }
     }
 
+    //Método validar Quantidade do Produto
     public boolean quantidadeProduto(String aux) throws Exception {
-
         if (aux.length() < 6) {
             if (aux.matches("[1-9][0-9]{0,4}")) {
                 return true;
@@ -66,7 +64,7 @@ public class TestesFuncionais {
         }
     }
     
-     //Método para valida Nome
+    //Método para valida Nome
     public boolean validaNome(String nome){
         if(nome.length() < 5 || nome.length() > 50){
             return false;
@@ -94,6 +92,7 @@ public class TestesFuncionais {
         }
         return true;
     }
+    
     //Método para valida CPF
     public boolean validaCPF(String cpf){
         String CPF = "\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d";
