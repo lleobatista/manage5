@@ -5,6 +5,7 @@
  */
 package Views;
 
+import java.awt.CardLayout;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JFrame;
 
@@ -19,11 +20,7 @@ public class Desktop extends javax.swing.JFrame {
      */
     public Desktop() {
         initComponents();
-        Inicial.setVisible(true);
-        Cadastrar_Funcionarios.setVisible(false);
-        Visualizar_Funcionarios.setVisible(false);
-        Cadastrar_Produtos.setVisible(false);
-        Visualizar_Estoque.setVisible(false);
+        
     }
 
     /**
@@ -35,246 +32,302 @@ public class Desktop extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TelaInicial = new javax.swing.JPanel();
-        modo_adm = new javax.swing.JLabel();
-        cadastrar_funcionario = new javax.swing.JLabel();
-        base_cadFuncionario1 = new javax.swing.JLabel();
-        visualizar_funcionarios = new javax.swing.JLabel();
-        base_cadFuncionario2 = new javax.swing.JLabel();
-        cadastrar_produto = new javax.swing.JLabel();
-        base_cadFuncionario3 = new javax.swing.JLabel();
-        visualizar_estoque = new javax.swing.JLabel();
-        base_cadFuncionario4 = new javax.swing.JLabel();
-        jLayeredPane2 = new javax.swing.JLayeredPane();
-        Inicial = new javax.swing.JPanel();
-        Frase_Boas_Vindas = new javax.swing.JLabel();
-        Cadastrar_Funcionarios = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanelInicio = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        fundo_cadastrar_funcionario = new javax.swing.JLabel();
-        Visualizar_Funcionarios = new javax.swing.JPanel();
+        jPanelcadFuncionario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        fundo_visualizar_funcionario = new javax.swing.JLabel();
-        Cadastrar_Produtos = new javax.swing.JPanel();
+        jPanelvisFuncionario = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        fundo_cadastrar_produto = new javax.swing.JLabel();
-        Visualizar_Estoque = new javax.swing.JPanel();
+        jPanelcadProduto = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        fundo_visualizar_estoque = new javax.swing.JLabel();
+        jPanelvisProduto = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanelatuFuncionario = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanelatuProduto = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1024, 626));
+        setMinimumSize(new java.awt.Dimension(1024, 626));
+        setPreferredSize(new java.awt.Dimension(1024, 626));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        TelaInicial.setBackground(new java.awt.Color(193, 171, 254));
-        TelaInicial.setLayout(null);
+        jPanel1.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 576));
+        jPanel1.setLayout(new java.awt.CardLayout());
 
-        modo_adm.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
-        modo_adm.setForeground(new java.awt.Color(255, 255, 255));
-        modo_adm.setText("MODO ADM");
-        TelaInicial.add(modo_adm);
-        modo_adm.setBounds(40, 20, 199, 47);
+        jPanelInicio.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelInicio.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelInicio.setLayout(null);
 
-        cadastrar_funcionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cadastrar_funcionario.setText("Cadastrar Funcionário");
-        cadastrar_funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadastrar_funcionarioMouseClicked(evt);
+                jLabel8MouseClicked(evt);
             }
         });
-        TelaInicial.add(cadastrar_funcionario);
-        cadastrar_funcionario.setBounds(90, 70, 190, 50);
+        jPanelInicio.add(jLabel8);
+        jLabel8.setBounds(14, 154, 430, 70);
 
-        base_cadFuncionario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base_button170x40.png"))); // NOI18N
-        TelaInicial.add(base_cadFuncionario1);
-        base_cadFuncionario1.setBounds(100, 70, 180, 50);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Inicio.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1024, 576));
+        jPanelInicio.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1024, 576);
 
-        visualizar_funcionarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        visualizar_funcionarios.setText("Visializar Funcionários");
-        visualizar_funcionarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                visualizar_funcionariosMouseClicked(evt);
+        jPanel1.add(jPanelInicio, "Inicio");
+
+        jPanelcadFuncionario.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelcadFuncionario.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelcadFuncionario.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Funcionário.png"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel2.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel2.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        javax.swing.GroupLayout jPanelcadFuncionarioLayout = new javax.swing.GroupLayout(jPanelcadFuncionario);
+        jPanelcadFuncionario.setLayout(jPanelcadFuncionarioLayout);
+        jPanelcadFuncionarioLayout.setHorizontalGroup(
+            jPanelcadFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelcadFuncionarioLayout.setVerticalGroup(
+            jPanelcadFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanelcadFuncionario, "cadFuncionario");
+
+        jPanelvisFuncionario.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelvisFuncionario.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelvisFuncionario.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Funcionário.png"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel3.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel3.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        javax.swing.GroupLayout jPanelvisFuncionarioLayout = new javax.swing.GroupLayout(jPanelvisFuncionario);
+        jPanelvisFuncionario.setLayout(jPanelvisFuncionarioLayout);
+        jPanelvisFuncionarioLayout.setHorizontalGroup(
+            jPanelvisFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelvisFuncionarioLayout.setVerticalGroup(
+            jPanelvisFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanelvisFuncionario, "visFuncionario");
+
+        jPanelcadProduto.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelcadProduto.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelcadProduto.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Produto.png"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel4.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel4.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        javax.swing.GroupLayout jPanelcadProdutoLayout = new javax.swing.GroupLayout(jPanelcadProduto);
+        jPanelcadProduto.setLayout(jPanelcadProdutoLayout);
+        jPanelcadProdutoLayout.setHorizontalGroup(
+            jPanelcadProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelcadProdutoLayout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelcadProdutoLayout.setVerticalGroup(
+            jPanelcadProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelcadProdutoLayout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanelcadProduto, "cadProduto");
+
+        jPanelvisProduto.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelvisProduto.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelvisProduto.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Produto.png"))); // NOI18N
+        jLabel5.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel5.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel5.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        javax.swing.GroupLayout jPanelvisProdutoLayout = new javax.swing.GroupLayout(jPanelvisProduto);
+        jPanelvisProduto.setLayout(jPanelvisProdutoLayout);
+        jPanelvisProdutoLayout.setHorizontalGroup(
+            jPanelvisProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelvisProdutoLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelvisProdutoLayout.setVerticalGroup(
+            jPanelvisProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelvisProdutoLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanelvisProduto, "visProduto");
+
+        jPanelatuFuncionario.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelatuFuncionario.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelatuFuncionario.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Atualizar Funcionário.png"))); // NOI18N
+        jLabel6.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel6.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel6.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        javax.swing.GroupLayout jPanelatuFuncionarioLayout = new javax.swing.GroupLayout(jPanelatuFuncionario);
+        jPanelatuFuncionario.setLayout(jPanelatuFuncionarioLayout);
+        jPanelatuFuncionarioLayout.setHorizontalGroup(
+            jPanelatuFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelatuFuncionarioLayout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelatuFuncionarioLayout.setVerticalGroup(
+            jPanelatuFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelatuFuncionarioLayout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanelatuFuncionario, "atuFuncionario");
+
+        jPanelatuProduto.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jPanelatuProduto.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jPanelatuProduto.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Atualizar Produto.png"))); // NOI18N
+        jLabel7.setMaximumSize(new java.awt.Dimension(1024, 576));
+        jLabel7.setMinimumSize(new java.awt.Dimension(1024, 576));
+        jLabel7.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        javax.swing.GroupLayout jPanelatuProdutoLayout = new javax.swing.GroupLayout(jPanelatuProduto);
+        jPanelatuProduto.setLayout(jPanelatuProdutoLayout);
+        jPanelatuProdutoLayout.setHorizontalGroup(
+            jPanelatuProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelatuProdutoLayout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelatuProdutoLayout.setVerticalGroup(
+            jPanelatuProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelatuProdutoLayout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanelatuProduto, "atuProduto");
+
+        getContentPane().add(jPanel1, "card2");
+
+        jMenu1.setText("Início");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
             }
         });
-        TelaInicial.add(visualizar_funcionarios);
-        visualizar_funcionarios.setBounds(80, 130, 210, 50);
 
-        base_cadFuncionario2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base_button170x40.png"))); // NOI18N
-        TelaInicial.add(base_cadFuncionario2);
-        base_cadFuncionario2.setBounds(100, 130, 180, 50);
-
-        cadastrar_produto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cadastrar_produto.setText("Cadastrar Produto");
-        cadastrar_produto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadastrar_produtoMouseClicked(evt);
+        jMenuItem1.setText("Início");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        TelaInicial.add(cadastrar_produto);
-        cadastrar_produto.setBounds(90, 190, 190, 50);
+        jMenu1.add(jMenuItem1);
 
-        base_cadFuncionario3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base_button170x40.png"))); // NOI18N
-        TelaInicial.add(base_cadFuncionario3);
-        base_cadFuncionario3.setBounds(100, 190, 180, 50);
-
-        visualizar_estoque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        visualizar_estoque.setText("Visualizar Estoque");
-        visualizar_estoque.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                visualizar_estoqueMouseClicked(evt);
+        jMenuItem2.setText("Cadastrar Funcionário");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        TelaInicial.add(visualizar_estoque);
-        visualizar_estoque.setBounds(90, 250, 200, 50);
+        jMenu1.add(jMenuItem2);
 
-        base_cadFuncionario4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base_button170x40.png"))); // NOI18N
-        TelaInicial.add(base_cadFuncionario4);
-        base_cadFuncionario4.setBounds(100, 250, 180, 50);
+        jMenuItem3.setText("Visualizar Funcionário");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
-        Inicial.setBackground(new java.awt.Color(193, 171, 254));
-        Inicial.setPreferredSize(new java.awt.Dimension(1053, 566));
+        jMenuItem4.setText("Cadastrar Produto");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
 
-        Frase_Boas_Vindas.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        Frase_Boas_Vindas.setForeground(new java.awt.Color(255, 255, 255));
-        Frase_Boas_Vindas.setText("Bem Vindo ao Sistema de Pagamento Por Crachá");
+        jMenuItem5.setText("Visualizar Produto");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
 
-        javax.swing.GroupLayout InicialLayout = new javax.swing.GroupLayout(Inicial);
-        Inicial.setLayout(InicialLayout);
-        InicialLayout.setHorizontalGroup(
-            InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InicialLayout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
-                .addComponent(Frase_Boas_Vindas)
-                .addGap(104, 104, 104))
-        );
-        InicialLayout.setVerticalGroup(
-            InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InicialLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
-                .addComponent(Frase_Boas_Vindas)
-                .addContainerGap(363, Short.MAX_VALUE))
-        );
+        jMenuBar1.add(jMenu1);
 
-        Cadastrar_Funcionarios.setBackground(new java.awt.Color(193, 171, 254));
-        Cadastrar_Funcionarios.setPreferredSize(new java.awt.Dimension(1053, 566));
-        Cadastrar_Funcionarios.setLayout(null);
-
-        jLabel1.setText("Aqui é a tela Cadastrar Funcionario");
-        Cadastrar_Funcionarios.add(jLabel1);
-        jLabel1.setBounds(30, 30, 250, 14);
-
-        fundo_cadastrar_funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo1009x600.png"))); // NOI18N
-        Cadastrar_Funcionarios.add(fundo_cadastrar_funcionario);
-        fundo_cadastrar_funcionario.setBounds(0, 0, 1010, 601);
-
-        Visualizar_Funcionarios.setBackground(new java.awt.Color(193, 171, 254));
-        Visualizar_Funcionarios.setPreferredSize(new java.awt.Dimension(1053, 566));
-        Visualizar_Funcionarios.setLayout(null);
-
-        jLabel2.setText("Aqui é a tela Visualizar funcionário");
-        Visualizar_Funcionarios.add(jLabel2);
-        jLabel2.setBounds(40, 30, 240, 14);
-
-        fundo_visualizar_funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo1009x600.png"))); // NOI18N
-        Visualizar_Funcionarios.add(fundo_visualizar_funcionario);
-        fundo_visualizar_funcionario.setBounds(0, 0, 1009, 601);
-
-        Cadastrar_Produtos.setBackground(new java.awt.Color(193, 171, 254));
-        Cadastrar_Produtos.setPreferredSize(new java.awt.Dimension(1053, 566));
-        Cadastrar_Produtos.setLayout(null);
-
-        jLabel3.setText("Aqui é a tela Cadastrar Produto");
-        Cadastrar_Produtos.add(jLabel3);
-        jLabel3.setBounds(30, 30, 260, 14);
-
-        fundo_cadastrar_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo1009x600.png"))); // NOI18N
-        Cadastrar_Produtos.add(fundo_cadastrar_produto);
-        fundo_cadastrar_produto.setBounds(0, 0, 1009, 601);
-
-        Visualizar_Estoque.setBackground(new java.awt.Color(193, 171, 254));
-        Visualizar_Estoque.setPreferredSize(new java.awt.Dimension(1053, 566));
-        Visualizar_Estoque.setLayout(null);
-
-        jLabel4.setText("Aqui é a tela Visualizar Estoque");
-        Visualizar_Estoque.add(jLabel4);
-        jLabel4.setBounds(30, 30, 240, 14);
-
-        fundo_visualizar_estoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo1009x600.png"))); // NOI18N
-        Visualizar_Estoque.add(fundo_visualizar_estoque);
-        fundo_visualizar_estoque.setBounds(0, 0, 1009, 601);
-
-        jLayeredPane2.setLayer(Inicial, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(Cadastrar_Funcionarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(Visualizar_Funcionarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(Cadastrar_Produtos, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(Visualizar_Estoque, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
-        jLayeredPane2.setLayout(jLayeredPane2Layout);
-        jLayeredPane2Layout.setHorizontalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Cadastrar_Funcionarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Inicial, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Visualizar_Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Cadastrar_Produtos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Visualizar_Estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
-        );
-        jLayeredPane2Layout.setVerticalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addComponent(Cadastrar_Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 59, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Inicial, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Visualizar_Funcionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Cadastrar_Produtos, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Visualizar_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-        );
-
-        TelaInicial.add(jLayeredPane2);
-        jLayeredPane2.setBounds(340, 30, 1010, 660);
-
-        getContentPane().add(TelaInicial, "card2");
+        setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadastrar_funcionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrar_funcionarioMouseClicked
-        Inicial.setVisible(false);
-        Cadastrar_Funcionarios.setVisible(true);
-        Visualizar_Funcionarios.setVisible(false);
-        Cadastrar_Produtos.setVisible(false);
-        Visualizar_Estoque.setVisible(false);
-    }//GEN-LAST:event_cadastrar_funcionarioMouseClicked
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "Inicio");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void visualizar_funcionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_visualizar_funcionariosMouseClicked
-        Inicial.setVisible(false);
-        Cadastrar_Funcionarios.setVisible(false);
-        Visualizar_Funcionarios.setVisible(true);
-        Cadastrar_Produtos.setVisible(false);
-        Visualizar_Estoque.setVisible(false);
-    }//GEN-LAST:event_visualizar_funcionariosMouseClicked
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "cadFuncionario");
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void cadastrar_produtoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrar_produtoMouseClicked
-        Inicial.setVisible(false);
-        Cadastrar_Funcionarios.setVisible(false);
-        Visualizar_Funcionarios.setVisible(false);
-        Cadastrar_Produtos.setVisible(true);
-        Visualizar_Estoque.setVisible(false);
-    }//GEN-LAST:event_cadastrar_produtoMouseClicked
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "visFuncionario");
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void visualizar_estoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_visualizar_estoqueMouseClicked
-        Inicial.setVisible(false);
-        Cadastrar_Funcionarios.setVisible(false);
-        Visualizar_Funcionarios.setVisible(false);
-        Cadastrar_Produtos.setVisible(false);
-        Visualizar_Estoque.setVisible(true);
-    }//GEN-LAST:event_visualizar_estoqueMouseClicked
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "Inicio");
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "cadProduto");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "visProduto");
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "cadFuncionario");
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -307,36 +360,32 @@ public class Desktop extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             JFrame desk = new Desktop();
             desk.setVisible(true);
-            desk.setResizable(true);
-            desk.setExtendedState(MAXIMIZED_BOTH);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Cadastrar_Funcionarios;
-    private javax.swing.JPanel Cadastrar_Produtos;
-    private javax.swing.JLabel Frase_Boas_Vindas;
-    private javax.swing.JPanel Inicial;
-    private javax.swing.JPanel TelaInicial;
-    private javax.swing.JPanel Visualizar_Estoque;
-    private javax.swing.JPanel Visualizar_Funcionarios;
-    private javax.swing.JLabel base_cadFuncionario1;
-    private javax.swing.JLabel base_cadFuncionario2;
-    private javax.swing.JLabel base_cadFuncionario3;
-    private javax.swing.JLabel base_cadFuncionario4;
-    private javax.swing.JLabel cadastrar_funcionario;
-    private javax.swing.JLabel cadastrar_produto;
-    private javax.swing.JLabel fundo_cadastrar_funcionario;
-    private javax.swing.JLabel fundo_cadastrar_produto;
-    private javax.swing.JLabel fundo_visualizar_estoque;
-    private javax.swing.JLabel fundo_visualizar_funcionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JLabel modo_adm;
-    private javax.swing.JLabel visualizar_estoque;
-    private javax.swing.JLabel visualizar_funcionarios;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelInicio;
+    private javax.swing.JPanel jPanelatuFuncionario;
+    private javax.swing.JPanel jPanelatuProduto;
+    private javax.swing.JPanel jPanelcadFuncionario;
+    private javax.swing.JPanel jPanelcadProduto;
+    private javax.swing.JPanel jPanelvisFuncionario;
+    private javax.swing.JPanel jPanelvisProduto;
     // End of variables declaration//GEN-END:variables
 }
