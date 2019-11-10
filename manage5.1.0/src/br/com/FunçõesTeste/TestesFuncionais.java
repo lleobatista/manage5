@@ -11,6 +11,30 @@ package br.com.FunçõesTeste;
  */
 public class TestesFuncionais {
     
+    //Método valida E-mail
+    public boolean validaEmail(String email) throws Exception {
+        if (email.length() >= 5 && email.length() <= 100 && email != null){
+            String ex = "^(\\w[\\w\\.\\-]+){3,}@(\\w[\\w\\-]+\\.)+[a-z]{2,4}$";
+            if(email.matches(ex)){
+                return true;
+            } else {
+                throw new Exception("E-mail inválido");
+            }
+            
+        }else {
+                throw new Exception("E-mail inválido");
+        }
+    }
+    
+    //Método valida Senha
+    public boolean validaSenha (String senha) throws Exception {
+        if(senha.length() >= 8){
+            return true;
+        } else {
+            throw new Exception("Senha inválida");
+        }    
+    }
+    
     //Método valida Nome do Produto
     public boolean validaNomeProduto(String nome) throws Exception {
         if (nome.length() > 2 && nome.length() < 51) {
