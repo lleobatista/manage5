@@ -5,12 +5,16 @@
  */
 package br.com.Cadastro.PosteGreJPA;
 
+import br.com.Comprovante_end.Comprovante_end;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 
 /**
  *
@@ -30,6 +34,8 @@ public class Funcionario implements Serializable {
     private String cartTrab;
     private String tituloEl;
     private String pis;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Comprovante_end comprovante_end;
 
     public Integer getId() {
         return id;
@@ -95,17 +101,26 @@ public class Funcionario implements Serializable {
         this.pis = pis;
     }
 
+    public Comprovante_end getComprovante_end() {
+        return comprovante_end;
+    }
+
+    public void setComprovante_end(Comprovante_end comprovante_end) {
+        this.comprovante_end = comprovante_end;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        hash = 53 * hash + Objects.hashCode(this.rg);
-        hash = 53 * hash + Objects.hashCode(this.nome);
-        hash = 53 * hash + Objects.hashCode(this.cpf);
-        hash = 53 * hash + Objects.hashCode(this.dataNasc);
-        hash = 53 * hash + Objects.hashCode(this.cartTrab);
-        hash = 53 * hash + Objects.hashCode(this.tituloEl);
-        hash = 53 * hash + Objects.hashCode(this.pis);
+        int hash = 3;
+        hash = 43 * hash + Objects.hashCode(this.id);
+        hash = 43 * hash + Objects.hashCode(this.rg);
+        hash = 43 * hash + Objects.hashCode(this.nome);
+        hash = 43 * hash + Objects.hashCode(this.cpf);
+        hash = 43 * hash + Objects.hashCode(this.dataNasc);
+        hash = 43 * hash + Objects.hashCode(this.cartTrab);
+        hash = 43 * hash + Objects.hashCode(this.tituloEl);
+        hash = 43 * hash + Objects.hashCode(this.pis);
+        hash = 43 * hash + Objects.hashCode(this.comprovante_end);
         return hash;
     }
 
@@ -127,6 +142,9 @@ public class Funcionario implements Serializable {
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
         if (!Objects.equals(this.dataNasc, other.dataNasc)) {
             return false;
         }
@@ -142,8 +160,13 @@ public class Funcionario implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
+        if (!Objects.equals(this.comprovante_end, other.comprovante_end)) {
+            return false;
+        }
         return true;
     }
+
+    
 
     @Override
     public String toString() {
