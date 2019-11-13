@@ -5,6 +5,9 @@
  */
 package br.com.FunçõesTeste;
 
+import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.Comprovante_end.Comprovante_end;
+
 /**
  *
  * @author igorb
@@ -259,8 +262,8 @@ public class TestesFuncionais {
     }
     
     //Método para validar Cartão do Programa Integração Social (PIS)
-    public boolean validaProgramIntegacaoSocial(String programaIntegracaoSocial) throws Exception{
-        String Pis = "\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d.\\d";
+    public boolean validaProgramaIntegacaoSocial(String programaIntegracaoSocial) throws Exception{
+        String Pis = "\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d\\d";
         if(programaIntegracaoSocial.length() < 14 || programaIntegracaoSocial.length() > 14){
             throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
@@ -269,6 +272,27 @@ public class TestesFuncionais {
         }
         else if(!programaIntegracaoSocial.matches(Pis)){
             throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
+        }
+        return true;
+    }
+    public boolean validaFuncionario(Funcionario fnr)throws Exception{
+        try{
+            validaNome(fnr.getNome());
+            validaRG(fnr.getRg());
+            validaCPF(fnr.getCpf());
+            validaDataDeNascimento(fnr.getDataNasc());        
+            validaCarteiraDeTrabalho(fnr.getCartTrab());        
+            validaCEP(fnr.getComprovante_end().getCep());       
+            validaLogradouro(fnr.getComprovante_end().getLogradouro());       
+            validaNumero(Integer.toString(fnr.getComprovante_end().getNumero()));
+            validaComplemento(fnr.getComprovante_end().getComple());  
+            validaBairro(fnr.getComprovante_end().getBairro());
+            validaCidade(fnr.getComprovante_end().getCidade());
+            validaEstado(fnr.getComprovante_end().getEstado());
+            validaTituloDeEleitor(fnr.getTituloEl());
+            validaProgramaIntegacaoSocial(fnr.getPis());
+        }catch(Exception ex){
+            throw new Exception(ex.getMessage());
         }
         return true;
     }
