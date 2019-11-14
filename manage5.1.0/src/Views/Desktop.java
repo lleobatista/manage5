@@ -35,6 +35,7 @@ public class Desktop extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanelInicio = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanelcadFuncionario = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -79,10 +80,13 @@ public class Desktop extends javax.swing.JFrame {
         jPanelInicio.add(jLabel8);
         jLabel8.setBounds(14, 154, 430, 70);
 
+        jComboBox1.setBackground(new java.awt.Color(231, 24, 24));
+        jComboBox1.setForeground(new java.awt.Color(225, 17, 17));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanelInicio.add(jComboBox1);
+        jComboBox1.setBounds(640, 140, 99, 35);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Inicio.png"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel1.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel1.setPreferredSize(new java.awt.Dimension(1024, 576));
         jPanelInicio.add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 576);
 
@@ -93,9 +97,6 @@ public class Desktop extends javax.swing.JFrame {
         jPanelcadFuncionario.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Funcionário.png"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel2.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel2.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         javax.swing.GroupLayout jPanelcadFuncionarioLayout = new javax.swing.GroupLayout(jPanelcadFuncionario);
         jPanelcadFuncionario.setLayout(jPanelcadFuncionarioLayout);
@@ -115,9 +116,6 @@ public class Desktop extends javax.swing.JFrame {
         jPanelvisFuncionario.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Funcionário.png"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel3.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel3.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         javax.swing.GroupLayout jPanelvisFuncionarioLayout = new javax.swing.GroupLayout(jPanelvisFuncionario);
         jPanelvisFuncionario.setLayout(jPanelvisFuncionarioLayout);
@@ -137,22 +135,19 @@ public class Desktop extends javax.swing.JFrame {
         jPanelcadProduto.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Produto.png"))); // NOI18N
-        jLabel4.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel4.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel4.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         javax.swing.GroupLayout jPanelcadProdutoLayout = new javax.swing.GroupLayout(jPanelcadProduto);
         jPanelcadProduto.setLayout(jPanelcadProdutoLayout);
         jPanelcadProdutoLayout.setHorizontalGroup(
             jPanelcadProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelcadProdutoLayout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelcadProdutoLayout.setVerticalGroup(
             jPanelcadProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelcadProdutoLayout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -163,22 +158,19 @@ public class Desktop extends javax.swing.JFrame {
         jPanelvisProduto.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Produto.png"))); // NOI18N
-        jLabel5.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel5.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel5.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         javax.swing.GroupLayout jPanelvisProdutoLayout = new javax.swing.GroupLayout(jPanelvisProduto);
         jPanelvisProduto.setLayout(jPanelvisProdutoLayout);
         jPanelvisProdutoLayout.setHorizontalGroup(
             jPanelvisProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelvisProdutoLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelvisProdutoLayout.setVerticalGroup(
             jPanelvisProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelvisProdutoLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -189,22 +181,19 @@ public class Desktop extends javax.swing.JFrame {
         jPanelatuFuncionario.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Atualizar Funcionário.png"))); // NOI18N
-        jLabel6.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel6.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel6.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         javax.swing.GroupLayout jPanelatuFuncionarioLayout = new javax.swing.GroupLayout(jPanelatuFuncionario);
         jPanelatuFuncionario.setLayout(jPanelatuFuncionarioLayout);
         jPanelatuFuncionarioLayout.setHorizontalGroup(
             jPanelatuFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelatuFuncionarioLayout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelatuFuncionarioLayout.setVerticalGroup(
             jPanelatuFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelatuFuncionarioLayout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -215,22 +204,19 @@ public class Desktop extends javax.swing.JFrame {
         jPanelatuProduto.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Atualizar Produto.png"))); // NOI18N
-        jLabel7.setMaximumSize(new java.awt.Dimension(1024, 576));
-        jLabel7.setMinimumSize(new java.awt.Dimension(1024, 576));
-        jLabel7.setPreferredSize(new java.awt.Dimension(1024, 576));
 
         javax.swing.GroupLayout jPanelatuProdutoLayout = new javax.swing.GroupLayout(jPanelatuProduto);
         jPanelatuProduto.setLayout(jPanelatuProdutoLayout);
         jPanelatuProdutoLayout.setHorizontalGroup(
             jPanelatuProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelatuProdutoLayout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel7)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelatuProdutoLayout.setVerticalGroup(
             jPanelatuProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelatuProdutoLayout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel7)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -364,6 +350,7 @@ public class Desktop extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

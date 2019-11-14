@@ -5,11 +5,46 @@
  */
 package br.com.FunçõesTeste;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author igorb
  */
 public class TestesFuncionais {
+    
+    //Método verifica cargo
+    public boolean verificaCargo(String cargo){
+        ArrayList<String> cargos = new ArrayList();
+        cargos.add("Gerente"); cargos.add("Garçom"); cargos.add("Garçonete"); 
+        cargos.add("Cozinheiro(a)"); cargos.add("Aux. Cozinha");
+        cargos.add("Atend. Caixa"); cargos.add("Aux. Copa"); 
+        cargos.add("Faxineiro(a)");
+        int i = 0, n = cargos.size();
+        for (i=0; i<n; i++) {
+            if(cargos.get(i).equalsIgnoreCase(cargo))
+                return true;
+        }
+        return false;
+    }
+    
+    //Método verifica estado
+    public boolean verificaEstado(String estado){
+        ArrayList<String> estados = new ArrayList();
+        estados.add("AC"); estados.add("AL"); estados.add("AP"); estados.add("AM"); 
+        estados.add("BA"); estados.add("CE"); estados.add("DF"); estados.add("ES"); 
+        estados.add("GO"); estados.add("MA"); estados.add("MT"); estados.add("MS"); 
+        estados.add("MG"); estados.add("PA"); estados.add("PB"); estados.add("PR"); 
+        estados.add("PE"); estados.add("PI"); estados.add("RJ"); estados.add("RN");
+        estados.add("RS"); estados.add("RO"); estados.add("RR"); estados.add("SC"); 
+        estados.add("SP"); estados.add("SE"); estados.add("TO");
+        int i = 0, n = estados.size();
+        for(i=0; i<n; i++){
+            if(estados.get(i).equalsIgnoreCase(estado))
+                return true;
+        }
+        return false;
+    }
     
     //Método valida E-mail
     public boolean validaEmail(String email) throws Exception {
@@ -88,6 +123,20 @@ public class TestesFuncionais {
         }
     }
     
+    //Método para validar Cargo
+    public boolean validaCargo(String cargo) throws Exception{
+        if(cargo.length() > 50){
+            throw new Exception("Cargo Inválido");
+        }
+        else if(cargo.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
+            throw new Exception("Cargo Inválido");
+        }
+        else if(!verificaCargo(cargo)){
+            throw new Exception("Cargo Inválido");
+        }
+        return true;
+    }
+
     //Método para valida Nome
     public boolean validaNome(String nome) throws Exception{
         if(nome.length() < 5 || nome.length() > 50){
@@ -238,6 +287,9 @@ public class TestesFuncionais {
             throw new Exception("Estado Inválido");
         }
         else if(estado.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
+            throw new Exception("Estado Inválido");
+        }
+        else if(!verificaEstado(estado)){
             throw new Exception("Estado Inválido");
         }
         return true;
