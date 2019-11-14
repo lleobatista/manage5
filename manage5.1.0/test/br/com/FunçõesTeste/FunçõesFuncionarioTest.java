@@ -46,7 +46,8 @@ public class FunçõesFuncionarioTest {
         compEnd.setComple("Apartamento 03");
         compEnd.setEstado("PR");
         compEnd.setLogradouro("Rua Piauí");
-        compEnd.setNumero(78);             
+        compEnd.setNumero(78);        
+        func.setCargo("Gerente");
         func.setCartTrab("1234567-12345");
         func.setComprovante_end(compEnd);
         func.setCpf("456.685.987-41");
@@ -64,6 +65,74 @@ public class FunçõesFuncionarioTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
+    @Test
+    public void cargoValido(){
+        func.setCargo("Gerente");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Nome Inválido");
+        }
+  
+    }
+    @Test
+    public void cargoVazio(){
+        func.setCargo("");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Nome Inválido");
+        }
+  
+    }
+    @Test
+    public void cargoMenor(){
+        func.setCargo("Caio");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Nome Inválido");
+        }
+  
+    }
+    @Test
+    public void cargoMaior(){
+        func.setNome("Gerenteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Nome Inválido");
+        }
+  
+    }
+     @Test
+    public void cargoSimbolo(){
+        func.setCargo("Gerente@%");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Nome Inválido");
+        }
+        
+    }
+    
+    @Test
+    public void nomeCargo(){
+        func.setCargo("Gerente55");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Nome Inválido");
+        }
+        
+    }
+    
     @Test
     public void nomeValido(){
         func.setNome("Caio Kera Iwamoto");
@@ -654,7 +723,7 @@ public class FunçõesFuncionarioTest {
     
     @Test
     public void numeroSimbolo(){
-                
+        
         try {
             assertTrue(fp.validaNumero("1@#"));
         } catch (Exception ex) {

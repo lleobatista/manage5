@@ -275,6 +275,13 @@ public class TestesFuncionais {
         }
         return true;
     }
+    public int trataInt(String num) throws Exception{
+        if(num.matches("[0-9]*")){
+        return Integer.parseInt(num);
+        }else{
+         throw new Exception("Número Invalido");
+        }
+    }
     public boolean validaFuncionario(Funcionario fnr)throws Exception{
         try{
             validaNome(fnr.getNome());
@@ -291,6 +298,7 @@ public class TestesFuncionais {
             validaEstado(fnr.getComprovante_end().getEstado());
             validaTituloDeEleitor(fnr.getTituloEl());
             validaProgramaIntegacaoSocial(fnr.getPis());
+            //validaCargo(fnr.getCargo());
         }catch(Exception ex){
             throw new Exception(ex.getMessage());
         }
