@@ -117,8 +117,6 @@ public class Login extends javax.swing.JFrame {
     private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogarActionPerformed
         JFrame desk = new Desktop();
         desk.setVisible(true);
-        desk.setResizable(true);
-        desk.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton_LogarActionPerformed
 
     /**
