@@ -5,14 +5,21 @@
  */
 package Views;
 
+import App.Aplicativo;
+import br.com.DomainMode.PostGresJPA.LoginSenha;
+import br.com.FunçõesTeste.TestesFuncionais;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author leandrocnb
  */
 public class Login extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Login
      */
@@ -20,6 +27,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         user_image.requestFocus();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,8 +124,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField_PasswordMouseClicked
 
     private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogarActionPerformed
-        JFrame desk = new Desktop();
-        desk.setVisible(true);
+        LoginSenha login = new LoginSenha();
+        login.setNome(jTextField_User.getText());
+        char[] teste = jPasswordField_Password.getPassword();
+        String b = String.copyValueOf(teste);
+        login.setSenha(b);
+        TestesFuncionais tf = new TestesFuncionais();
+        try {
+            if(tf.validaLogin(login)){
+                Aplicativo app = new Aplicativo();
+                if(app.validaLoginBD(login)){
+                    JFrame desk = new Desktop();
+                    desk.setVisible(true);
+                    this.dispose();
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }//GEN-LAST:event_jButton_LogarActionPerformed
 
     /**

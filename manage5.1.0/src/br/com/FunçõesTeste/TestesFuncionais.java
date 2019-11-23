@@ -6,6 +6,8 @@
 package br.com.FunçõesTeste;
 
 import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.DomainMode.PostGresJPA.LoginSenha;
+import br.com.Produtos.Produtos;
 import java.util.ArrayList;
 
 /**
@@ -339,4 +341,32 @@ public class TestesFuncionais {
         }
         return true;
     }
+    
+    //Método para validar todos os campos de Produto
+    public boolean validaProduto(Produtos pd)throws Exception{
+        try{
+            validaIdProduto(pd.getIdProduto());
+            validaDescriçãoProduto(pd.getDescr());
+            validaNomeProduto(pd.getNome());
+            quantidadeProduto(Integer.toString(pd.getQtd()));
+            validaPreco(pd.getPreco());
+        }catch(Exception ex){
+            throw new Exception(ex.getMessage());
+        }
+        return true;
+    }
+    
+    //Método para validar todos os campos de Login
+    public boolean validaLogin(LoginSenha lg)throws Exception{
+        try{
+            validaEmail(lg.getNome());
+            validaSenha(lg.getSenha());
+            
+        }catch(Exception ex){
+            throw new Exception(ex.getMessage());
+        }
+        return true;
+    }
+
+
 }

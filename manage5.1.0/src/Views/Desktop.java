@@ -24,6 +24,38 @@ public class Desktop extends javax.swing.JFrame {
         
         
     }
+    
+    public void limpaCamposCadFunc(){
+        nomeCompletoCadFunc.setText("");
+        dataNascCadFunc.setText("");
+        cargoCadFunc.setSelectedIndex(0);
+        rgCadFunc.setText("");
+        dataNascCadFunc.setText("");
+        carteiraDeTrabCadFunc.setText("");
+        cpfCadFunc.setText("");
+        tituloDeEleitorAtuFunc.setText("");
+        pisCadFunc.setText("");
+        cepCadFunc.setText("");
+        numeroCadFunc.setText("");
+        cidadeCadFunc.setText("");
+        logradouroCadFunc.setText("");
+        complementoCadFunc.setText("");
+        bairroCadFunc.setText("");
+        estadoCadFunc.setSelectedIndex(0);
+    }
+    
+    public void limpaCamposCadProduto(){
+        nomeProdutoCadProd.setText("");
+        quantidadeCadProd.setText("");
+        precoCadProd.setText("");
+        descricaoCadProd.setText("");
+    }
+    
+    public void limpaCamposAtuFunc(){
+        nomeCompletoAtuFunc.setText("");
+        
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,11 +107,11 @@ public class Desktop extends javax.swing.JFrame {
         btvisFuncCadProd = new javax.swing.JLabel();
         btvisProdCadProd = new javax.swing.JLabel();
         nomeProdutoCadProd = new javax.swing.JTextField();
-        qunatidadeCadProd = new javax.swing.JTextField();
+        quantidadeCadProd = new javax.swing.JTextField();
         precoCadProd = new javax.swing.JTextField();
         btcancelarCadProd = new javax.swing.JLabel();
-        descricaoCadProd = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        JScrollPane = new javax.swing.JScrollPane();
+        descricaoCadProd = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jPanelvisProduto = new javax.swing.JPanel();
         btcadFuncVisProd = new javax.swing.JLabel();
@@ -106,8 +138,8 @@ public class Desktop extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         btcancelarAtuFunc = new javax.swing.JLabel();
         rgAtuFunc = new javax.swing.JFormattedTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        cpfAtuFunc = new javax.swing.JFormattedTextField();
+        dataNascAtuFunc = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanelatuProduto = new javax.swing.JPanel();
         btcadFuncAtuProd = new javax.swing.JLabel();
@@ -222,7 +254,7 @@ public class Desktop extends javax.swing.JFrame {
         estadoCadFunc.setBackground(new java.awt.Color(255, 60, 60));
         estadoCadFunc.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         estadoCadFunc.setForeground(new java.awt.Color(255, 60, 60));
-        estadoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        estadoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         estadoCadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 estadoCadFuncActionPerformed(evt);
@@ -233,9 +265,9 @@ public class Desktop extends javax.swing.JFrame {
 
         cargoCadFunc.setBackground(new java.awt.Color(255, 60, 60));
         cargoCadFunc.setForeground(new java.awt.Color(255, 60, 60));
-        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Garçom", "Garçonete", "Cozinheiro(a)", "Aux. Cozinha", "Atend. Caixa", "Aux. Copa", "Faxineiro(a)" }));
         jPanelcadFuncionario.add(cargoCadFunc);
-        cargoCadFunc.setBounds(860, 130, 120, 30);
+        cargoCadFunc.setBounds(860, 140, 120, 20);
 
         nomeCompletoCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         nomeCompletoCadFunc.setBorder(null);
@@ -250,17 +282,17 @@ public class Desktop extends javax.swing.JFrame {
         carteiraDeTrabCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         carteiraDeTrabCadFunc.setBorder(null);
         jPanelcadFuncionario.add(carteiraDeTrabCadFunc);
-        carteiraDeTrabCadFunc.setBounds(520, 280, 180, 14);
+        carteiraDeTrabCadFunc.setBounds(520, 280, 180, 18);
 
         TituloDeEleitorCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         TituloDeEleitorCadFunc.setBorder(null);
         jPanelcadFuncionario.add(TituloDeEleitorCadFunc);
-        TituloDeEleitorCadFunc.setBounds(790, 230, 180, 14);
+        TituloDeEleitorCadFunc.setBounds(790, 230, 180, 18);
 
         pisCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         pisCadFunc.setBorder(null);
         jPanelcadFuncionario.add(pisCadFunc);
-        pisCadFunc.setBounds(790, 280, 180, 14);
+        pisCadFunc.setBounds(790, 280, 180, 18);
 
         cepCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         cepCadFunc.setBorder(null);
@@ -285,12 +317,12 @@ public class Desktop extends javax.swing.JFrame {
         complementoCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         complementoCadFunc.setBorder(null);
         jPanelcadFuncionario.add(complementoCadFunc);
-        complementoCadFunc.setBounds(790, 420, 180, 14);
+        complementoCadFunc.setBounds(790, 420, 180, 18);
 
         bairroCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         bairroCadFunc.setBorder(null);
         jPanelcadFuncionario.add(bairroCadFunc);
-        bairroCadFunc.setBounds(790, 470, 180, 14);
+        bairroCadFunc.setBounds(790, 470, 180, 18);
 
         btcancelarCadFunc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -299,6 +331,12 @@ public class Desktop extends javax.swing.JFrame {
         });
         jPanelcadFuncionario.add(btcancelarCadFunc);
         btcancelarCadFunc.setBounds(780, 520, 90, 40);
+
+        btcadastrarCadFunc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btcadastrarCadFuncMouseClicked(evt);
+            }
+        });
         jPanelcadFuncionario.add(btcadastrarCadFunc);
         btcadastrarCadFunc.setBounds(900, 520, 90, 40);
 
@@ -310,7 +348,7 @@ public class Desktop extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jPanelcadFuncionario.add(dataNascCadFunc);
-        dataNascCadFunc.setBounds(520, 230, 180, 14);
+        dataNascCadFunc.setBounds(520, 230, 180, 18);
 
         rgCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         rgCadFunc.setBorder(null);
@@ -326,7 +364,7 @@ public class Desktop extends javax.swing.JFrame {
             }
         });
         jPanelcadFuncionario.add(rgCadFunc);
-        rgCadFunc.setBounds(520, 180, 180, 14);
+        rgCadFunc.setBounds(520, 180, 180, 18);
 
         cpfCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         cpfCadFunc.setBorder(null);
@@ -342,7 +380,7 @@ public class Desktop extends javax.swing.JFrame {
             }
         });
         jPanelcadFuncionario.add(cpfCadFunc);
-        cpfCadFunc.setBounds(790, 180, 130, 14);
+        cpfCadFunc.setBounds(790, 180, 130, 18);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Funcionário3.png"))); // NOI18N
         jPanelcadFuncionario.add(jLabel2);
@@ -425,17 +463,17 @@ public class Desktop extends javax.swing.JFrame {
         nomeProdutoCadProd.setBackground(new java.awt.Color(255, 232, 232));
         nomeProdutoCadProd.setBorder(null);
         jPanelcadProduto.add(nomeProdutoCadProd);
-        nomeProdutoCadProd.setBounds(520, 140, 450, 14);
+        nomeProdutoCadProd.setBounds(520, 140, 450, 18);
 
-        qunatidadeCadProd.setBackground(new java.awt.Color(255, 232, 232));
-        qunatidadeCadProd.setBorder(null);
-        jPanelcadProduto.add(qunatidadeCadProd);
-        qunatidadeCadProd.setBounds(520, 200, 180, 14);
+        quantidadeCadProd.setBackground(new java.awt.Color(255, 232, 232));
+        quantidadeCadProd.setBorder(null);
+        jPanelcadProduto.add(quantidadeCadProd);
+        quantidadeCadProd.setBounds(520, 200, 180, 18);
 
         precoCadProd.setBackground(new java.awt.Color(255, 232, 232));
         precoCadProd.setBorder(null);
         jPanelcadProduto.add(precoCadProd);
-        precoCadProd.setBounds(790, 200, 180, 14);
+        precoCadProd.setBounds(790, 200, 180, 18);
 
         btcancelarCadProd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -445,17 +483,17 @@ public class Desktop extends javax.swing.JFrame {
         jPanelcadProduto.add(btcancelarCadProd);
         btcancelarCadProd.setBounds(780, 520, 90, 40);
 
+        JScrollPane.setBackground(new java.awt.Color(255, 232, 232));
+        JScrollPane.setBorder(null);
+
         descricaoCadProd.setBackground(new java.awt.Color(255, 232, 232));
+        descricaoCadProd.setColumns(20);
+        descricaoCadProd.setRows(5);
         descricaoCadProd.setBorder(null);
+        JScrollPane.setViewportView(descricaoCadProd);
 
-        jTextArea1.setBackground(new java.awt.Color(255, 232, 232));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(null);
-        descricaoCadProd.setViewportView(jTextArea1);
-
-        jPanelcadProduto.add(descricaoCadProd);
-        descricaoCadProd.setBounds(520, 270, 450, 150);
+        jPanelcadProduto.add(JScrollPane);
+        JScrollPane.setBounds(520, 270, 450, 150);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Produto 3.png"))); // NOI18N
         jPanelcadProduto.add(jLabel4);
@@ -545,27 +583,27 @@ public class Desktop extends javax.swing.JFrame {
         nomeCompletoAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         nomeCompletoAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(nomeCompletoAtuFunc);
-        nomeCompletoAtuFunc.setBounds(520, 136, 330, 14);
+        nomeCompletoAtuFunc.setBounds(520, 136, 330, 18);
 
         carteiraDeTrabAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         carteiraDeTrabAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(carteiraDeTrabAtuFunc);
-        carteiraDeTrabAtuFunc.setBounds(520, 276, 180, 14);
+        carteiraDeTrabAtuFunc.setBounds(520, 276, 180, 18);
 
         tituloDeEleitorAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         tituloDeEleitorAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(tituloDeEleitorAtuFunc);
-        tituloDeEleitorAtuFunc.setBounds(790, 230, 180, 14);
+        tituloDeEleitorAtuFunc.setBounds(790, 230, 180, 18);
 
         pisAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         pisAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(pisAtuFunc);
-        pisAtuFunc.setBounds(790, 276, 180, 14);
+        pisAtuFunc.setBounds(790, 276, 180, 18);
 
         cepAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         cepAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(cepAtuFunc);
-        cepAtuFunc.setBounds(510, 370, 190, 14);
+        cepAtuFunc.setBounds(510, 370, 190, 18);
 
         numeroAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         numeroAtuFunc.setToolTipText("");
@@ -576,37 +614,37 @@ public class Desktop extends javax.swing.JFrame {
             }
         });
         jPanelatuFuncionario.add(numeroAtuFunc);
-        numeroAtuFunc.setBounds(510, 420, 190, 14);
+        numeroAtuFunc.setBounds(510, 420, 190, 18);
 
         cidadeAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         cidadeAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(cidadeAtuFunc);
-        cidadeAtuFunc.setBounds(510, 470, 190, 14);
+        cidadeAtuFunc.setBounds(510, 470, 190, 18);
 
         logradouroAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         logradouroAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(logradouroAtuFunc);
-        logradouroAtuFunc.setBounds(790, 370, 180, 14);
+        logradouroAtuFunc.setBounds(790, 370, 180, 18);
 
         complementoAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         complementoAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(complementoAtuFunc);
-        complementoAtuFunc.setBounds(790, 420, 180, 14);
+        complementoAtuFunc.setBounds(790, 420, 180, 18);
 
         bairroAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
         bairroAtuFunc.setBorder(null);
         jPanelatuFuncionario.add(bairroAtuFunc);
-        bairroAtuFunc.setBounds(790, 470, 180, 14);
+        bairroAtuFunc.setBounds(790, 470, 180, 18);
 
         jComboBox1.setBackground(new java.awt.Color(255, 60, 60));
         jComboBox1.setForeground(new java.awt.Color(255, 60, 60));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         jPanelatuFuncionario.add(jComboBox1);
         jComboBox1.setBounds(510, 510, 190, 30);
 
         jComboBox2.setBackground(new java.awt.Color(255, 60, 60));
         jComboBox2.setForeground(new java.awt.Color(255, 60, 60));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Garçom", "Garçonete", "Cozinheiro(a)", "Aux. Cozinha", "Atend. Caixa", "Aux. Copa", "Faxineiro(a)" }));
         jPanelatuFuncionario.add(jComboBox2);
         jComboBox2.setBounds(860, 130, 120, 30);
 
@@ -628,26 +666,26 @@ public class Desktop extends javax.swing.JFrame {
         jPanelatuFuncionario.add(rgAtuFunc);
         rgAtuFunc.setBounds(520, 180, 170, 20);
 
-        jFormattedTextField1.setBackground(new java.awt.Color(255, 232, 232));
-        jFormattedTextField1.setBorder(null);
+        cpfAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
+        cpfAtuFunc.setBorder(null);
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            cpfAtuFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setPreferredSize(new java.awt.Dimension(45, 10));
-        jPanelatuFuncionario.add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(790, 180, 170, 20);
+        cpfAtuFunc.setPreferredSize(new java.awt.Dimension(45, 10));
+        jPanelatuFuncionario.add(cpfAtuFunc);
+        cpfAtuFunc.setBounds(790, 180, 170, 20);
 
-        jFormattedTextField2.setBackground(new java.awt.Color(255, 232, 232));
-        jFormattedTextField2.setBorder(null);
+        dataNascAtuFunc.setBackground(new java.awt.Color(255, 232, 232));
+        dataNascAtuFunc.setBorder(null);
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            dataNascAtuFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanelatuFuncionario.add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(520, 230, 180, 14);
+        jPanelatuFuncionario.add(dataNascAtuFunc);
+        dataNascAtuFunc.setBounds(520, 230, 180, 18);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Atualizar Funcionário3.png"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -700,17 +738,17 @@ public class Desktop extends javax.swing.JFrame {
         nomeProdAtuProd.setBackground(new java.awt.Color(255, 232, 232));
         nomeProdAtuProd.setBorder(null);
         jPanelatuProduto.add(nomeProdAtuProd);
-        nomeProdAtuProd.setBounds(520, 140, 450, 14);
+        nomeProdAtuProd.setBounds(520, 140, 450, 18);
 
         quantidadeAtuProd.setBackground(new java.awt.Color(255, 232, 232));
         quantidadeAtuProd.setBorder(null);
         jPanelatuProduto.add(quantidadeAtuProd);
-        quantidadeAtuProd.setBounds(520, 200, 180, 14);
+        quantidadeAtuProd.setBounds(520, 200, 180, 18);
 
         precoAtuProd.setBackground(new java.awt.Color(255, 232, 232));
         precoAtuProd.setBorder(null);
         jPanelatuProduto.add(precoAtuProd);
-        precoAtuProd.setBounds(790, 200, 180, 14);
+        precoAtuProd.setBounds(790, 200, 180, 18);
 
         descricaoAtuProd.setBackground(new java.awt.Color(255, 232, 232));
         descricaoAtuProd.setBorder(null);
@@ -1005,6 +1043,10 @@ public class Desktop extends javax.swing.JFrame {
         cl.show(jPanel1, "Inicio");
     }//GEN-LAST:event_btcancelarAtuProdMouseClicked
 
+    private void btcadastrarCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadastrarCadFuncMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btcadastrarCadFuncMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1040,6 +1082,7 @@ public class Desktop extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane JScrollPane;
     private javax.swing.JTextField TituloDeEleitorCadFunc;
     private javax.swing.JTextField bairroAtuFunc;
     private javax.swing.JTextField bairroCadFunc;
@@ -1084,15 +1127,15 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JTextField cidadeCadFunc;
     private javax.swing.JTextField complementoAtuFunc;
     private javax.swing.JTextField complementoCadFunc;
+    private javax.swing.JFormattedTextField cpfAtuFunc;
     private javax.swing.JFormattedTextField cpfCadFunc;
+    private javax.swing.JFormattedTextField dataNascAtuFunc;
     private javax.swing.JFormattedTextField dataNascCadFunc;
     private javax.swing.JScrollPane descricaoAtuProd;
-    private javax.swing.JScrollPane descricaoCadProd;
+    private javax.swing.JTextArea descricaoCadProd;
     private javax.swing.JComboBox<String> estadoCadFunc;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1115,7 +1158,6 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelcadProduto;
     private javax.swing.JPanel jPanelvisFuncionario;
     private javax.swing.JPanel jPanelvisProduto;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField logradouroAtuFunc;
     private javax.swing.JTextField logradouroCadFunc;
@@ -1130,7 +1172,7 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JTextField precoAtuProd;
     private javax.swing.JTextField precoCadProd;
     private javax.swing.JTextField quantidadeAtuProd;
-    private javax.swing.JTextField qunatidadeCadProd;
+    private javax.swing.JTextField quantidadeCadProd;
     private javax.swing.JFormattedTextField rgAtuFunc;
     private javax.swing.JFormattedTextField rgCadFunc;
     private javax.swing.JTextField tituloDeEleitorAtuFunc;
