@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LoginSenha.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;manage5&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">br.com.DomainMode.PostGresJPA</a> &gt; <span class="el_source">LoginSenha.java</span></div><h1>LoginSenha.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.DomainMode.PostGresJPA;
+
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ *
+ * @author Keila Emy
+ */
+@Entity
+<span class="fc" id="L21">public class LoginSenha implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(length = 100)
+    private String nome;
+    private String senha;
+
+    public Long getId() {
+<span class="nc" id="L33">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L37">        this.id = id;</span>
+<span class="nc" id="L38">    }</span>
+
+    public String getNome() {
+<span class="fc" id="L41">        return nome;</span>
+    }
+
+    public void setNome(String nome) {
+<span class="fc" id="L45">        this.nome = nome;</span>
+<span class="fc" id="L46">    }</span>
+
+    public String getSenha() {
+<span class="fc" id="L49">        return senha;</span>
+    }
+
+    public void setSenha(String senha) {
+<span class="fc" id="L53">        this.senha = senha;</span>
+<span class="fc" id="L54">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L58">        int hash = 7;</span>
+<span class="nc" id="L59">        hash = 67 * hash + Objects.hashCode(this.id);</span>
+<span class="nc" id="L60">        hash = 67 * hash + Objects.hashCode(this.nome);</span>
+<span class="nc" id="L61">        hash = 67 * hash + Objects.hashCode(this.senha);</span>
+<span class="nc" id="L62">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L68">            return false;</span>
+        }
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L71">            return false;</span>
+        }
+<span class="nc" id="L73">        final LoginSenha other = (LoginSenha) obj;</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (!Objects.equals(this.id, other.id)) {</span>
+<span class="nc" id="L75">            return false;</span>
+        }
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (!Objects.equals(this.nome, other.nome)) {</span>
+<span class="nc" id="L78">            return false;</span>
+        }
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (!Objects.equals(this.senha, other.senha)) {</span>
+<span class="nc" id="L81">            return false;</span>
+        }
+<span class="nc" id="L83">        return true;</span>
+    }
+
+
+
+    @Override
+    public String toString() {
+<span class="nc" id="L90">        return &quot;br.com.DomainMode.PostGresJPA.LoginSenha[ id=&quot; + id + &quot; ]&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

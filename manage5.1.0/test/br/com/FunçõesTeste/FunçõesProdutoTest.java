@@ -313,7 +313,8 @@ public class FunçõesProdutoTest {
         }
 
     }
-        @Test
+    
+    @Test
     public void codigoValido() throws Exception {
         pd.setIdProduto(5);
         assertTrue(fp.validaIdProduto(pd.getIdProduto()));

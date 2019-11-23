@@ -154,10 +154,7 @@ public class TestesFuncionais {
     //Método para valida RG
     public boolean validaRG(String rg) throws Exception{
         String RG = "\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d";
-        if(rg.matches(".*\\D^.^-.*")){
-            throw new Exception("RG Inválido");
-        }
-        else if(rg.length() < 12 || rg.length() > 12){
+        if(rg.length() < 12 || rg.length() > 12){
             throw new Exception("RG Inválido");
         }
         else if(!rg.matches(RG)){
@@ -169,10 +166,7 @@ public class TestesFuncionais {
     //Método para valida CPF
     public boolean validaCPF(String cpf) throws Exception{
         String CPF = "\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d";
-        if(cpf.matches(".*\\D^.^-.*")){
-            throw new Exception("CPF Inválido");
-        }
-        else if(cpf.length() < 14 || cpf.length() > 14){
+        if(cpf.length() < 14 || cpf.length() > 14){
             throw new Exception("CPF Inválido");
         }
         else if(!cpf.matches(CPF)){
@@ -184,10 +178,7 @@ public class TestesFuncionais {
     //Método para valida Data de Nascimento
     public boolean validaDataDeNascimento(String dataDeNascimento) throws Exception{
         String Ddn = "\\d\\d/\\d\\d/\\d\\d\\d\\d";
-        if(dataDeNascimento.matches(".*\\D^/.*")){
-            throw new Exception("Data de Nascimento Inválida");
-        }
-        else if(dataDeNascimento.length() < 10 || dataDeNascimento.length() > 10){
+        if(dataDeNascimento.length() < 10 || dataDeNascimento.length() > 10){
             throw new Exception("Data de Nascimento Inválida");
         }
         else if(!dataDeNascimento.matches(Ddn)){
@@ -199,10 +190,7 @@ public class TestesFuncionais {
     //Método para validar Carteira de Trabalho
     public boolean validaCarteiraDeTrabalho(String carteiraDeTrabalho) throws Exception{
         String Cdt = "\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\d";
-        if(carteiraDeTrabalho.matches(".*\\D^-.*")){
-            throw new Exception("Carteira de Trabalho Inválida");
-        }
-        else if(carteiraDeTrabalho.length() < 13 || carteiraDeTrabalho.length() > 13){
+        if(carteiraDeTrabalho.length() < 13 || carteiraDeTrabalho.length() > 13){
             throw new Exception("Carteira de Trabalho Inválida");
         }
         else if(!carteiraDeTrabalho.matches(Cdt)){
@@ -214,10 +202,7 @@ public class TestesFuncionais {
     //Método para validar CEP
     public boolean validaCEP(String cep) throws Exception{
         String CEP = "\\d\\d\\d\\d\\d-\\d\\d\\d";
-        if(cep.matches(".*\\D^-.*")){
-            throw new Exception("CEP Inválido");
-        }
-        else if(cep.length() < 9 || cep.length() > 9){
+        if(cep.length() < 9 || cep.length() > 9){
             throw new Exception("CEP Inválido");
         }
         else if(!cep.matches(CEP)){
@@ -301,9 +286,6 @@ public class TestesFuncionais {
         if(tituloDeEleitor.length() < 14 || tituloDeEleitor.length() > 14){
             throw new Exception("Título de Eleitor Inválido");
         }
-        else if(tituloDeEleitor.matches(".*\\D^-.*")){
-            throw new Exception("Título de Eleitor Inválido");
-        }
         else if(!tituloDeEleitor.matches(Tde)){
             throw new Exception("Título de Eleitor Inválido");
         }
@@ -312,7 +294,7 @@ public class TestesFuncionais {
     
     //Método para validar Cartão do Programa Integração Social (PIS)
     public boolean validaProgramaIntegacaoSocial(String programaIntegracaoSocial) throws Exception{
-        String Pis = "\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d.\\d";
+        String Pis = "\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d\\d";
         if(programaIntegracaoSocial.length() < 14 || programaIntegracaoSocial.length() > 14){
             throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
