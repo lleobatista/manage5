@@ -34,8 +34,17 @@ public class Funcionario implements Serializable {
     private String cartTrab;
     private String tituloEl;
     private String pis;
+    private String cargo;
     @OneToOne(cascade = CascadeType.PERSIST)
     private Comprovante_end comprovante_end;
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
 
     public Integer getId() {
         return id;
@@ -111,16 +120,17 @@ public class Funcionario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 43 * hash + Objects.hashCode(this.id);
-        hash = 43 * hash + Objects.hashCode(this.rg);
-        hash = 43 * hash + Objects.hashCode(this.nome);
-        hash = 43 * hash + Objects.hashCode(this.cpf);
-        hash = 43 * hash + Objects.hashCode(this.dataNasc);
-        hash = 43 * hash + Objects.hashCode(this.cartTrab);
-        hash = 43 * hash + Objects.hashCode(this.tituloEl);
-        hash = 43 * hash + Objects.hashCode(this.pis);
-        hash = 43 * hash + Objects.hashCode(this.comprovante_end);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        hash = 97 * hash + Objects.hashCode(this.rg);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.cpf);
+        hash = 97 * hash + Objects.hashCode(this.dataNasc);
+        hash = 97 * hash + Objects.hashCode(this.cartTrab);
+        hash = 97 * hash + Objects.hashCode(this.tituloEl);
+        hash = 97 * hash + Objects.hashCode(this.pis);
+        hash = 97 * hash + Objects.hashCode(this.cargo);
+        hash = 97 * hash + Objects.hashCode(this.comprovante_end);
         return hash;
     }
 
@@ -157,6 +167,9 @@ public class Funcionario implements Serializable {
         if (!Objects.equals(this.pis, other.pis)) {
             return false;
         }
+        if (!Objects.equals(this.cargo, other.cargo)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -165,6 +178,8 @@ public class Funcionario implements Serializable {
         }
         return true;
     }
+
+    
 
     
 

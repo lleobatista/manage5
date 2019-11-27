@@ -5,10 +5,20 @@
  */
 package Views;
 
+import App.Aplicativo;
+import App.Criptografar;
+import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.DomainMode.PostGresJPA.LoginSenha;
+import br.com.FunçõesTeste.TestesFuncionais;
+import br.com.Produtos.Produtos;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +35,55 @@ public class Desktop extends javax.swing.JFrame {
         
     }
     
+    //Método para carregar tabela Produtos
+    public void carregaTabelaProduto(){
+        DefaultTableModel modelo = (DefaultTableModel) jTableProdutos.getModel();
+        modelo.setNumRows(0);
+        
+        jTableProdutos.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jTableProdutos.getColumnModel().getColumn(1).setPreferredWidth(80);
+        jTableProdutos.getColumnModel().getColumn(2).setPreferredWidth(20);
+        jTableProdutos.getColumnModel().getColumn(3).setPreferredWidth(20);
+
+        Aplicativo app = new Aplicativo();
+        
+        app.selectProduto().forEach((l) -> {
+            modelo.addRow(new Object[]{
+                
+                l.getIdProduto(),
+                l.getNome(),
+                l.getQtd(),
+                l.getPreco()
+                
+            });
+        });
+    }
+    
+    //Método para carregar tabela Funcionários
+    public void carregaTabelaFuncionario(){
+        DefaultTableModel modelo = (DefaultTableModel) jTableFuncionario.getModel();
+        modelo.setNumRows(0);
+        
+        jTableFuncionario.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jTableFuncionario.getColumnModel().getColumn(1).setPreferredWidth(80);
+        jTableFuncionario.getColumnModel().getColumn(2).setPreferredWidth(20);
+        jTableFuncionario.getColumnModel().getColumn(3).setPreferredWidth(20);
+
+        Aplicativo app = new Aplicativo();
+        
+        app.selectFuncionario().forEach((l) -> {
+            modelo.addRow(new Object[]{
+                
+                l.getId(),
+                l.getNome(),
+                l.getCpf(),
+                l.getCargo()
+                
+            });
+        });
+    }
+    
+    //Limpa os campos de Cadastra Funcionários
     public void limpaCamposCadFunc(){
         nomeCompletoCadFunc.setText("");
         dataNascCadFunc.setText("");
@@ -33,7 +92,7 @@ public class Desktop extends javax.swing.JFrame {
         dataNascCadFunc.setText("");
         carteiraDeTrabCadFunc.setText("");
         cpfCadFunc.setText("");
-        tituloDeEleitorAtuFunc.setText("");
+        TituloDeEleitorCadFunc.setText("");
         pisCadFunc.setText("");
         cepCadFunc.setText("");
         numeroCadFunc.setText("");
@@ -44,6 +103,7 @@ public class Desktop extends javax.swing.JFrame {
         estadoCadFunc.setSelectedIndex(0);
     }
     
+    //Limpa os compos de Cadastra Produto
     public void limpaCamposCadProduto(){
         nomeProdutoCadProd.setText("");
         quantidadeCadProd.setText("");
@@ -51,9 +111,24 @@ public class Desktop extends javax.swing.JFrame {
         descricaoCadProd.setText("");
     }
     
+    //Lima os campos de Atualizar Funcionário
     public void limpaCamposAtuFunc(){
         nomeCompletoAtuFunc.setText("");
-        
+        dataNascAtuFunc.setText("");
+        cargoAtuaFunc.setSelectedIndex(0);
+        rgAtuFunc.setText("");
+        dataNascAtuFunc.setText("");
+        carteiraDeTrabAtuFunc.setText("");
+        cpfAtuFunc.setText("");
+        tituloDeEleitorAtuFunc.setText("");
+        pisAtuFunc.setText("");
+        cepAtuFunc.setText("");
+        numeroAtuFunc.setText("");
+        cidadeAtuFunc.setText("");
+        logradouroAtuFunc.setText("");
+        complementoAtuFunc.setText("");
+        bairroAtuFunc.setText("");
+        estadoAtuaFunc.setSelectedIndex(0);
     }
 
 
@@ -101,6 +176,8 @@ public class Desktop extends javax.swing.JFrame {
         btcadProdVisFunc = new javax.swing.JLabel();
         btvisProdVisFunc = new javax.swing.JLabel();
         btatualizarVisFunc = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableFuncionario = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jPanelcadProduto = new javax.swing.JPanel();
         btcadFuncCadProd = new javax.swing.JLabel();
@@ -112,12 +189,15 @@ public class Desktop extends javax.swing.JFrame {
         btcancelarCadProd = new javax.swing.JLabel();
         JScrollPane = new javax.swing.JScrollPane();
         descricaoCadProd = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        brcadastrarCadFunc = new javax.swing.JLabel();
         jPanelvisProduto = new javax.swing.JPanel();
         btcadFuncVisProd = new javax.swing.JLabel();
         btvisFuncVisProd = new javax.swing.JLabel();
         btcadProdVisProd = new javax.swing.JLabel();
         btatualizarAtuProd = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableProdutos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jPanelatuFuncionario = new javax.swing.JPanel();
         btcadFuncAtuFunc = new javax.swing.JLabel();
@@ -134,8 +214,8 @@ public class Desktop extends javax.swing.JFrame {
         logradouroAtuFunc = new javax.swing.JTextField();
         complementoAtuFunc = new javax.swing.JTextField();
         bairroAtuFunc = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        estadoAtuaFunc = new javax.swing.JComboBox<>();
+        cargoAtuaFunc = new javax.swing.JComboBox<>();
         btcancelarAtuFunc = new javax.swing.JLabel();
         rgAtuFunc = new javax.swing.JFormattedTextField();
         cpfAtuFunc = new javax.swing.JFormattedTextField();
@@ -203,6 +283,9 @@ public class Desktop extends javax.swing.JFrame {
         btvisProdIni.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btvisProdIniMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btvisProdIniMouseEntered(evt);
             }
         });
         jPanelInicio.add(btvisProdIni);
@@ -425,6 +508,27 @@ public class Desktop extends javax.swing.JFrame {
         jPanelvisFuncionario.add(btatualizarVisFunc);
         btatualizarVisFunc.setBounds(894, 514, 100, 40);
 
+        jTableFuncionario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome", "CPF", "Cargo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableFuncionario);
+
+        jPanelvisFuncionario.add(jScrollPane1);
+        jScrollPane1.setBounds(480, 110, 530, 402);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Funcionário.png"))); // NOI18N
         jPanelvisFuncionario.add(jLabel3);
         jLabel3.setBounds(0, 0, 1024, 576);
@@ -495,9 +599,17 @@ public class Desktop extends javax.swing.JFrame {
         jPanelcadProduto.add(JScrollPane);
         JScrollPane.setBounds(520, 270, 450, 150);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Produto 3.png"))); // NOI18N
-        jPanelcadProduto.add(jLabel4);
-        jLabel4.setBounds(0, 0, 1024, 576);
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanelcadProduto.add(jLabel8);
+        jLabel8.setBounds(890, 510, 110, 50);
+
+        brcadastrarCadFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Cadastrar Produto 3.png"))); // NOI18N
+        jPanelcadProduto.add(brcadastrarCadFunc);
+        brcadastrarCadFunc.setBounds(0, 0, 1024, 576);
 
         jPanel1.add(jPanelcadProduto, "cadProduto");
 
@@ -537,6 +649,27 @@ public class Desktop extends javax.swing.JFrame {
         });
         jPanelvisProduto.add(btatualizarAtuProd);
         btatualizarAtuProd.setBounds(890, 510, 100, 50);
+
+        jTableProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome", "Quantidade", "Preço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTableProdutos);
+
+        jPanelvisProduto.add(jScrollPane2);
+        jScrollPane2.setBounds(480, 110, 530, 402);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Produto.png"))); // NOI18N
         jPanelvisProduto.add(jLabel5);
@@ -636,17 +769,17 @@ public class Desktop extends javax.swing.JFrame {
         jPanelatuFuncionario.add(bairroAtuFunc);
         bairroAtuFunc.setBounds(790, 470, 180, 18);
 
-        jComboBox1.setBackground(new java.awt.Color(255, 60, 60));
-        jComboBox1.setForeground(new java.awt.Color(255, 60, 60));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        jPanelatuFuncionario.add(jComboBox1);
-        jComboBox1.setBounds(510, 510, 190, 30);
+        estadoAtuaFunc.setBackground(new java.awt.Color(255, 60, 60));
+        estadoAtuaFunc.setForeground(new java.awt.Color(255, 60, 60));
+        estadoAtuaFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jPanelatuFuncionario.add(estadoAtuaFunc);
+        estadoAtuaFunc.setBounds(510, 510, 190, 30);
 
-        jComboBox2.setBackground(new java.awt.Color(255, 60, 60));
-        jComboBox2.setForeground(new java.awt.Color(255, 60, 60));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Garçom", "Garçonete", "Cozinheiro(a)", "Aux. Cozinha", "Atend. Caixa", "Aux. Copa", "Faxineiro(a)" }));
-        jPanelatuFuncionario.add(jComboBox2);
-        jComboBox2.setBounds(860, 130, 120, 30);
+        cargoAtuaFunc.setBackground(new java.awt.Color(255, 60, 60));
+        cargoAtuaFunc.setForeground(new java.awt.Color(255, 60, 60));
+        cargoAtuaFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Garçom", "Garçonete", "Cozinheiro(a)", "Aux. Cozinha", "Atend. Caixa", "Aux. Copa", "Faxineiro(a)" }));
+        jPanelatuFuncionario.add(cargoAtuaFunc);
+        cargoAtuaFunc.setBounds(860, 130, 120, 30);
 
         btcancelarAtuFunc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -882,6 +1015,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdIniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdIniMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visProduto");
+        carregaTabelaProduto();
     }//GEN-LAST:event_btvisProdIniMouseClicked
 
     private void btcadFuncCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadFuncCadFuncMouseClicked
@@ -902,6 +1036,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdCadFuncMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visProduto");
+        carregaTabelaProduto();
     }//GEN-LAST:event_btvisProdCadFuncMouseClicked
 
     private void estadoCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoCadFuncActionPerformed
@@ -921,6 +1056,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdVisFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdVisFuncMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visProduto");
+        carregaTabelaProduto();
     }//GEN-LAST:event_btvisProdVisFuncMouseClicked
 
     private void nomeCompletoCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeCompletoCadFuncActionPerformed
@@ -945,6 +1081,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdCadProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdCadProdMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visProduto");
+        carregaTabelaProduto();
     }//GEN-LAST:event_btvisProdCadProdMouseClicked
 
     private void btcancelarCadProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcancelarCadProdMouseClicked
@@ -994,6 +1131,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdAtuFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdAtuFuncMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visProduto");
+        carregaTabelaProduto();
     }//GEN-LAST:event_btvisProdAtuFuncMouseClicked
 
     private void numeroAtuFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroAtuFuncActionPerformed
@@ -1018,6 +1156,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdAtuProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdAtuProdMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visProduto");
+        carregaTabelaProduto();
     }//GEN-LAST:event_btvisProdAtuProdMouseClicked
 
     private void btvisFuncAtuProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncAtuProdMouseClicked
@@ -1046,6 +1185,32 @@ public class Desktop extends javax.swing.JFrame {
     private void btcadastrarCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadastrarCadFuncMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btcadastrarCadFuncMouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        Produtos prod = new Produtos();
+        TestesFuncionais tf = new TestesFuncionais();
+        Aplicativo app = new Aplicativo();
+        
+        prod.setNome(nomeProdutoCadProd.getText());
+        prod.setQtd(Integer.parseInt(quantidadeCadProd.getText()));
+        prod.setPreco(Double.parseDouble(precoCadProd.getText()));
+        prod.setDescr(descricaoCadProd.getText());
+        
+        try {
+            if(tf.validaProduto(prod)){
+                app.cadProduto(prod);
+                JOptionPane.showMessageDialog(null, "Produto Cadastrado!");
+                limpaCamposCadProduto();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void btvisProdIniMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdIniMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btvisProdIniMouseEntered
 
     /**
      * @param args the command line arguments
@@ -1086,6 +1251,7 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JTextField TituloDeEleitorCadFunc;
     private javax.swing.JTextField bairroAtuFunc;
     private javax.swing.JTextField bairroCadFunc;
+    private javax.swing.JLabel brcadastrarCadFunc;
     private javax.swing.JLabel btatualizarAtuProd;
     private javax.swing.JLabel btatualizarVisFunc;
     private javax.swing.JLabel btcadFuncAtuFunc;
@@ -1118,6 +1284,7 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JLabel btvisProdCadProd;
     private javax.swing.JLabel btvisProdIni;
     private javax.swing.JLabel btvisProdVisFunc;
+    private javax.swing.JComboBox<String> cargoAtuaFunc;
     private javax.swing.JComboBox<String> cargoCadFunc;
     private javax.swing.JTextField carteiraDeTrabAtuFunc;
     private javax.swing.JTextField carteiraDeTrabCadFunc;
@@ -1133,16 +1300,15 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField dataNascCadFunc;
     private javax.swing.JScrollPane descricaoAtuProd;
     private javax.swing.JTextArea descricaoCadProd;
+    private javax.swing.JComboBox<String> estadoAtuaFunc;
     private javax.swing.JComboBox<String> estadoCadFunc;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -1158,6 +1324,10 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelcadProduto;
     private javax.swing.JPanel jPanelvisFuncionario;
     private javax.swing.JPanel jPanelvisProduto;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableFuncionario;
+    private javax.swing.JTable jTableProdutos;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField logradouroAtuFunc;
     private javax.swing.JTextField logradouroCadFunc;

@@ -118,7 +118,7 @@ public class TestesFuncionais {
 
     //Método para validar Preço
     public boolean validaPreco(double preco) throws Exception {
-        if (preco >= 0 && preco <= 1000000) {
+        if (preco >= 0.0 && preco <= 1000000.0) {
             return true;
         } else {
             throw new Exception("Preço invalido");
@@ -345,7 +345,7 @@ public class TestesFuncionais {
     //Método para validar todos os campos de Produto
     public boolean validaProduto(Produtos pd)throws Exception{
         try{
-            validaIdProduto(pd.getIdProduto());
+            //validaIdProduto(pd.getIdProduto());
             validaDescriçãoProduto(pd.getDescr());
             validaNomeProduto(pd.getNome());
             quantidadeProduto(Integer.toString(pd.getQtd()));

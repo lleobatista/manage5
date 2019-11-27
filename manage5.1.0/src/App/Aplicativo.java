@@ -23,44 +23,16 @@ import br.com.Produtos.Produtos;
  * @author Keila Emy
  */
 public class Aplicativo {
+    
     EntityManagerFactory objFactory = Persistence.createEntityManagerFactory("manage5PU");
     EntityManager manager = objFactory.createEntityManager();
-    LoginSenhaJpaController jpa = new LoginSenhaJpaController(objFactory);
-/*
-    public static void main(String args[]) {
+    LoginSenhaJpaController loginJpa = new LoginSenhaJpaController(objFactory);
+    FuncionarioJpaController funcJpa = new FuncionarioJpaController(objFactory);
+    ProdutosJpaController prodJpa = new ProdutosJpaController(objFactory);
 
-        
-
-        LoginSenhaJpaController jpa = new LoginSenhaJpaController(objFactory);
-        FuncionarioJpaController jpa1 = new FuncionarioJpaController(objFactory);
-        ProdutosJpaController jpa2 = new ProdutosJpaController(objFactory);
-        Comprovante_endJpaController jpa3 = new Comprovante_endJpaController(objFactory);
-        
-        
-        
-
-        LoginSenha ls = new LoginSenha();
-        Funcionario func = new Funcionario();
-        Comprovante_end end = new Comprovante_end();
-        Produtos pr = new Produtos();
-        
-        ls.setNome("leandro");
-        ls.setSenha("leandro123vai");
-        ls.setSenha(Criptografar.encriptografar(ls.getSenha()));
-                
-        jpa.create(ls);
-        jpa1.create(func);
-        jpa2.create(pr);
-        jpa3.create(end);
-        
-        
-
-        
-
-    }
-*/
+    //Método validar Login com Banco de Dados
     public boolean validaLoginBD(LoginSenha login) throws Exception{
-        List<LoginSenha> lista = jpa.findLoginSenhaEntities();
+        List<LoginSenha> lista = loginJpa.findLoginSenhaEntities();
         for(LoginSenha l : lista){
             if(l.getNome().equals(login.getNome())){
                 if(l.getSenha().equals(Criptografar.encriptografar(login.getSenha())))
@@ -68,5 +40,22 @@ public class Aplicativo {
             }
         }
         throw new Exception("Usuário inválido!");
+    }
+    
+    //Metodo Lista Funcionarios
+    public List<Funcionario> selectFuncionario(){
+        List<Funcionario> lista = funcJpa.findFuncionarioEntities();
+        return lista;
+    }
+    
+    //Metodo Lista Produtos
+    public List<Produtos> selectProduto(){
+        List<Produtos> lista = prodJpa.findProdutosEntities();
+        return lista;
+    }
+    
+    //Método Cadastra Produto
+    public void cadProduto(Produtos prod){
+        prodJpa.create(prod);
     }
 }
