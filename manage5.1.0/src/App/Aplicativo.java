@@ -59,3 +59,31 @@ public class Aplicativo {
         prodJpa.create(prod);
     }
 }
+
+
+/*
+public static void main(String args[]) {
+    EntityManagerFactory objFactory = Persistence.createEntityManagerFactory("manage5PU");
+    EntityManager manager = objFactory.createEntityManager();
+    FuncionarioJpaController funcJpa = new FuncionarioJpaController(objFactory);
+
+    LoginSenhaJpaController loginJpa = new LoginSenhaJpaController(objFactory);
+    FuncionarioJpaController jpa1 = new FuncionarioJpaController(objFactory);
+    ProdutosJpaController jpa2 = new ProdutosJpaController(objFactory);
+    Comprovante_endJpaController jpa3 = new Comprovante_endJpaController(objFactory);
+       
+    LoginSenha ls = new LoginSenha();
+    Funcionario func = new Funcionario();
+    Comprovante_end end = new Comprovante_end();
+    Produtos pr = new Produtos();
+    
+    ls.setNome("leandro");
+    ls.setSenha("leandro123vai");
+    ls.setSenha(Criptografar.encriptografar(ls.getSenha()));
+         
+    loginJpa.create(ls);
+    funcJpa.create(func);
+    jpa2.create(pr);
+    jpa3.create(end); 
+}
+*/
