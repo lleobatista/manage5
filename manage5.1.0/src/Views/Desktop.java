@@ -8,6 +8,8 @@ package Views;
 import App.Aplicativo;
 import App.Criptografar;
 import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.Cadastro.PosteGreJPA.Funcionario_;
+import br.com.Comprovante_end.Comprovante_end;
 import br.com.DomainMode.PostGresJPA.LoginSenha;
 import br.com.FunçõesTeste.TestesFuncionais;
 import br.com.Produtos.Produtos;
@@ -421,7 +423,7 @@ public class Desktop extends javax.swing.JFrame {
             }
         });
         jPanelcadFuncionario.add(btcadastrarCadFunc);
-        btcadastrarCadFunc.setBounds(900, 520, 90, 40);
+        btcadastrarCadFunc.setBounds(890, 510, 110, 50);
 
         dataNascCadFunc.setBackground(new java.awt.Color(255, 232, 232));
         dataNascCadFunc.setBorder(null);
@@ -694,6 +696,12 @@ public class Desktop extends javax.swing.JFrame {
         });
         jPanelatuFuncionario.add(btcadFuncAtuFunc);
         btcadFuncAtuFunc.setBounds(14, 154, 430, 60);
+
+        btvisFuncAtuFunc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btvisFuncAtuFuncMouseClicked(evt);
+            }
+        });
         jPanelatuFuncionario.add(btvisFuncAtuFunc);
         btvisFuncAtuFunc.setBounds(20, 250, 420, 60);
 
@@ -1005,6 +1013,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisFuncIniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncIniMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visFuncionario");
+        carregaTabelaFuncionario();
     }//GEN-LAST:event_btvisFuncIniMouseClicked
 
     private void btcadProdIniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadProdIniMouseClicked
@@ -1026,6 +1035,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisFuncCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncCadFuncMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visFuncionario");
+        carregaTabelaFuncionario();
     }//GEN-LAST:event_btvisFuncCadFuncMouseClicked
 
     private void btcadProdCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadProdCadFuncMouseClicked
@@ -1066,6 +1076,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btcancelarCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcancelarCadFuncMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "Inicio");
+        limpaCamposCadFunc();
     }//GEN-LAST:event_btcancelarCadFuncMouseClicked
 
     private void btcadFuncCadProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadFuncCadProdMouseClicked
@@ -1076,6 +1087,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisFuncCadProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncCadProdMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visFuncionario");
+        carregaTabelaFuncionario();
     }//GEN-LAST:event_btvisFuncCadProdMouseClicked
 
     private void btvisProdCadProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdCadProdMouseClicked
@@ -1087,6 +1099,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btcancelarCadProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcancelarCadProdMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "Inicio");
+        limpaCamposCadProduto();
     }//GEN-LAST:event_btcancelarCadProdMouseClicked
 
     private void btcadFuncVisProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadFuncVisProdMouseClicked
@@ -1097,6 +1110,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisFuncVisProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncVisProdMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visFuncionario");
+        carregaTabelaFuncionario();
     }//GEN-LAST:event_btvisFuncVisProdMouseClicked
 
     private void btcadProdVisProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadProdVisProdMouseClicked
@@ -1162,6 +1176,7 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisFuncAtuProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncAtuProdMouseClicked
         CardLayout cl = (CardLayout) jPanel1.getLayout();
         cl.show(jPanel1, "visFuncionario");
+        carregaTabelaFuncionario();
     }//GEN-LAST:event_btvisFuncAtuProdMouseClicked
 
     private void rgCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgCadFuncActionPerformed
@@ -1183,7 +1198,42 @@ public class Desktop extends javax.swing.JFrame {
     }//GEN-LAST:event_btcancelarAtuProdMouseClicked
 
     private void btcadastrarCadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcadastrarCadFuncMouseClicked
-        // TODO add your handling code here:
+        Funcionario func = new Funcionario();
+        Comprovante_end ce = new Comprovante_end();
+        
+        func.setNome(nomeCompletoCadFunc.getText());
+        func.setCargo(cargoCadFunc.getSelectedItem().toString());
+        func.setRg(rgCadFunc.getText());
+        func.setCpf(cpfCadFunc.getText());
+        func.setDataNasc(dataNascCadFunc.getText());
+        func.setTituloEl(TituloDeEleitorCadFunc.getText());
+        func.setCartTrab(carteiraDeTrabCadFunc.getText());
+        func.setPis(pisCadFunc.getText());
+        ce.setCep(cepCadFunc.getText());
+        ce.setLogradouro(logradouroCadFunc.getText());
+        ce.setNumero(Integer.parseInt(numeroCadFunc.getText()));
+        ce.setComple(complementoCadFunc.getText());
+        ce.setCidade(cidadeCadFunc.getText());
+        ce.setBairro(bairroCadFunc.getText());
+        ce.setEstado(estadoCadFunc.getSelectedItem().toString());
+        func.setComprovante_end(ce);
+
+        TestesFuncionais tf = new TestesFuncionais();
+        
+        try {
+            if(tf.validaNumero(numeroCadFunc.getText())){
+                if(tf.validaFuncionario(func)){                
+                    Aplicativo app = new Aplicativo();
+                    app.cadFunc(func);
+                    JOptionPane.showMessageDialog(null, "Funcionario Cadastrado");
+                    limpaCamposCadFunc();
+                    carregaTabelaFuncionario();
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
     }//GEN-LAST:event_btcadastrarCadFuncMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -1201,6 +1251,7 @@ public class Desktop extends javax.swing.JFrame {
                 app.cadProduto(prod);
                 JOptionPane.showMessageDialog(null, "Produto Cadastrado!");
                 limpaCamposCadProduto();
+                carregaTabelaProduto();
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -1211,6 +1262,12 @@ public class Desktop extends javax.swing.JFrame {
     private void btvisProdIniMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisProdIniMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btvisProdIniMouseEntered
+
+    private void btvisFuncAtuFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btvisFuncAtuFuncMouseClicked
+        CardLayout cl = (CardLayout) jPanel1.getLayout();
+        cl.show(jPanel1, "visFuncionario");
+        carregaTabelaFuncionario();
+    }//GEN-LAST:event_btvisFuncAtuFuncMouseClicked
 
     /**
      * @param args the command line arguments

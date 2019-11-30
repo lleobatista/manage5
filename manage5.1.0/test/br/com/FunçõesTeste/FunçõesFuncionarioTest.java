@@ -7,6 +7,7 @@ package br.com.FunçõesTeste;
 
 import br.com.Cadastro.PosteGreJPA.Funcionario;
 import br.com.Comprovante_end.Comprovante_end;
+import javax.swing.JOptionPane;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -55,6 +56,7 @@ public class FunçõesFuncionarioTest {
         func.setPis("09.67827.27-82");
         func.setRg("10.192.874-7");
         func.setTituloEl("2467 9848 9820");
+        func.setCargo("Gerente");
     }
     
     @After
@@ -65,11 +67,71 @@ public class FunçõesFuncionarioTest {
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
+    public void cargoValido(){
+        func.setCargo("Gerente");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Cargo Inválido");
+        }
+  
+    }
+   
+    @Test
+    public void cargoMenor(){
+        func.setCargo("Gari");
+        
+        try {
+            assertTrue(fp.validaCargo(func.getCargo()));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Cargo Inválido");
+        }
+  
+    }
+    
+    @Test
+    public void cargoMaior(){
+        func.setCargo("CozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiroCozinheiro");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Cargo Inválido");
+        }
+  
+    }
+    
+    @Test
+    public void cargoSímbolo(){
+        func.setCargo("Gerente!");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Cargo Inválido");
+        }
+  
+    }
+    
+    @Test
+    public void cargoNumero(){
+        func.setCargo("Gerente2");
+        
+        try {
+            assertTrue(fp.validaFuncionario(func));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Cargo Inválido");
+        }
+  
+    }
+    
+    @Test
     public void nomeValido(){
         func.setNome("Caio Kera Iwamoto");
         
         try {
-            assertTrue(fp.validaNome(func.getNome()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Nome Inválido");
         }
@@ -141,7 +203,7 @@ public class FunçõesFuncionarioTest {
         func.setRg("10.192.874-7");
        
         try {
-            assertTrue(fp.validaRG(func.getRg()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "RG Inválido");
         }
@@ -225,7 +287,7 @@ public class FunçõesFuncionarioTest {
         func.setCpf("456.685.987-41");
         
         try {
-            assertTrue(fp.validaCPF(func.getCpf()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "CPF Inválido");
         }
@@ -309,7 +371,7 @@ public class FunçõesFuncionarioTest {
         func.setDataNasc("27/10/2019");
         
         try {
-            assertTrue(fp.validaCidade(func.getComprovante_end().getCidade()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Data de Nascimento Inválida");
         }
@@ -321,7 +383,7 @@ public class FunçõesFuncionarioTest {
         func.setDataNasc("");
         
         try {
-            assertTrue(fp.validaDataDeNascimento(func.getDataNasc()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Data de Nascimento Inválida");
         }
@@ -393,7 +455,7 @@ public class FunçõesFuncionarioTest {
         func.setCartTrab("1234567-12345");
         
         try {
-            assertTrue(fp.validaCarteiraDeTrabalho(func.getCartTrab()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Carteira de Trabalho Inválida");
         }
@@ -477,7 +539,7 @@ public class FunçõesFuncionarioTest {
         compEnd.setCep("86300-000");
         func.setComprovante_end(compEnd);
         try {
-            assertTrue(fp.validaCEP(func.getComprovante_end().getCep()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "CEP Inválido");
         }
@@ -561,7 +623,7 @@ public class FunçõesFuncionarioTest {
         compEnd.setLogradouro("Rua Piauí");
         func.setComprovante_end(compEnd);
         try {
-            assertTrue(fp.validaLogradouro(func.getComprovante_end().getLogradouro()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Logradouro Inválido");
         }
@@ -630,7 +692,17 @@ public class FunçõesFuncionarioTest {
     
     @Test
     public void numeroVazio(){
-        compEnd.setNumero(0);
+        
+        try {
+            assertTrue(fp.validaNumero(""));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Número Invalido");
+        }
+    }
+    
+    @Test
+    public void numeroMaior(){
+        compEnd.setNumero(1234567);
         func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaNumero(func.getComprovante_end().getNumero().toString()));
@@ -641,8 +713,8 @@ public class FunçõesFuncionarioTest {
     }
     
     @Test
-    public void numeroMaior(){
-        compEnd.setNumero(1234567);
+    public void numeroMenor(){
+        compEnd.setNumero(-6);
         func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaNumero(func.getComprovante_end().getNumero().toString()));
@@ -679,7 +751,7 @@ public class FunçõesFuncionarioTest {
         compEnd.setComple("Apartamento 03");
         func.setComprovante_end(compEnd);
         try {
-            assertTrue(fp.validaComplemento(func.getComprovante_end().getLogradouro()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Complemento Inválido");
         }
@@ -715,7 +787,7 @@ public class FunçõesFuncionarioTest {
         compEnd.setBairro("Centro");
         func.setComprovante_end(compEnd);
         try {
-            assertTrue(fp.validaBairro(func.getComprovante_end().getBairro()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Bairro Inválido");
         }
@@ -775,9 +847,10 @@ public class FunçõesFuncionarioTest {
         compEnd.setCidade("Cornélio Procópio");
         func.setComprovante_end(compEnd);
         try {
-            assertTrue(fp.validaCidade(func.getComprovante_end().getCidade()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Cidade Inválida");
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         
     }
@@ -785,7 +858,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void cidadeVazio(){
         compEnd.setCidade("");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -797,7 +870,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void cidadeMenor(){
         compEnd.setCidade("a");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -809,7 +882,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void cidadeMaior(){
         compEnd.setCidade("Cornélio Procópio São Paulo Rio de Janeiro São José do Rio Santo do Jordão");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -821,7 +894,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void cidadeSimbolo(){
         compEnd.setCidade("Corn&lio P387copie**(");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -835,7 +908,7 @@ public class FunçõesFuncionarioTest {
         compEnd.setEstado("SP");
         func.setComprovante_end(compEnd);
         try {
-            assertTrue(fp.validaEstado(func.getComprovante_end().getEstado()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Estado Inválido");
         }
@@ -845,7 +918,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void estadoVazio(){
         compEnd.setEstado("");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -857,7 +930,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void estadoMenor(){
         compEnd.setEstado("S");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -869,7 +942,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void estadoMaior(){
         compEnd.setEstado("SPA");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -881,7 +954,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void estadoNumero(){
         compEnd.setEstado("S3");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -893,7 +966,7 @@ public class FunçõesFuncionarioTest {
     @Test
     public void estadoSimbolo(){
         compEnd.setEstado("@#");
-        
+        func.setComprovante_end(compEnd);
         try {
             assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
@@ -907,7 +980,7 @@ public class FunçõesFuncionarioTest {
         func.setTituloEl("2467 9848 9820");
         
         try {
-            assertTrue(fp.validaTituloDeEleitor(func.getTituloEl()));
+            assertTrue(fp.validaFuncionario(func));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Título de Eleitor Inválido");
         }
@@ -1068,7 +1141,7 @@ public class FunçõesFuncionarioTest {
             assertEquals(ex.getMessage(), "Cartão do Programa Integração Social (PIS) Inválido");
         }
         
-    }
+    }/*
     @Test
     public void validaFuncionario() throws Exception {
         compEnd.setBairro("Centro");
@@ -1079,13 +1152,13 @@ public class FunçõesFuncionarioTest {
         compEnd.setLogradouro("Rua Piauí");
         compEnd.setNumero(78);             
         func.setCartTrab("1234567-12345");
-        func.setComprovante_end(compEnd);
-        func.setCpf("456.685.987-41");
-        func.setDataNasc("27/10/2019");
-        func.setNome("Caio Kera Iwamoto");
-        func.setPis("09.67827.27-82");
-        func.setRg("10.192.874-7");
-        func.setTituloEl("2467 9848 9820");
+       // func.setComprovante_end(compEnd);
+       // func.setCpf("456.685.987-41");
+       // func.setDataNasc("27/10/2019");
+       // func.setNome("Caio Kera Iwamoto");
+        //func.setPis("09.67827.27-82");
+        //func.setRg("10.192.874-7");
+       // func.setTituloEl("2467 9848 9820");
         assertTrue(fp.validaFuncionario(func));
-    }
+    }*/
 }

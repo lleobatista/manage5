@@ -58,6 +58,10 @@ public class Aplicativo {
     public void cadProduto(Produtos prod){
         prodJpa.create(prod);
     }
+    //Método Cadastra Funcionario
+    public void cadFunc(Funcionario func){
+        funcJpa.create(func);
+    }
 }
 
 

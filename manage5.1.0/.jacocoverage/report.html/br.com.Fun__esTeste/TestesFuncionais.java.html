@@ -6,338 +6,351 @@
 package br.com.FunçõesTeste;
 
 import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.DomainMode.PostGresJPA.LoginSenha;
+import br.com.Produtos.Produtos;
 import java.util.ArrayList;
 
 /**
  *
  * @author leandrocnb
  */
-<span class="fc" id="L15">public class TestesFuncionais {</span>
+<span class="fc" id="L17">public class TestesFuncionais {</span>
     
     //Método verifica cargo
     public boolean verificaCargo(String cargo){
-<span class="nc" id="L19">        ArrayList&lt;String&gt; cargos = new ArrayList();</span>
-<span class="nc" id="L20">        cargos.add(&quot;Gerente&quot;); cargos.add(&quot;Garçom&quot;); cargos.add(&quot;Garçonete&quot;); </span>
-<span class="nc" id="L21">        cargos.add(&quot;Cozinheiro(a)&quot;); cargos.add(&quot;Aux. Cozinha&quot;);</span>
-<span class="nc" id="L22">        cargos.add(&quot;Atend. Caixa&quot;); cargos.add(&quot;Aux. Copa&quot;); </span>
-<span class="nc" id="L23">        cargos.add(&quot;Faxineiro(a)&quot;);</span>
-<span class="nc" id="L24">        int i = 0, n = cargos.size();</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (i=0; i&lt;n; i++) {</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">            if(cargos.get(i).equals(cargo))</span>
-<span class="nc" id="L27">                return true;</span>
+<span class="fc" id="L21">        ArrayList&lt;String&gt; cargos = new ArrayList();</span>
+<span class="fc" id="L22">        cargos.add(&quot;Gerente&quot;); cargos.add(&quot;Garçom&quot;); cargos.add(&quot;Garçonete&quot;); </span>
+<span class="fc" id="L23">        cargos.add(&quot;Cozinheiro(a)&quot;); cargos.add(&quot;Aux. Cozinha&quot;);</span>
+<span class="fc" id="L24">        cargos.add(&quot;Atend. Caixa&quot;); cargos.add(&quot;Aux. Copa&quot;); </span>
+<span class="fc" id="L25">        cargos.add(&quot;Faxineiro(a)&quot;);</span>
+<span class="fc" id="L26">        int i = 0, n = cargos.size();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (i=0; i&lt;n; i++) {</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">            if(cargos.get(i).equals(cargo))</span>
+<span class="fc" id="L29">                return true;</span>
         }
-<span class="nc" id="L29">        return false;</span>
+<span class="fc" id="L31">        return false;</span>
     }
     
     //Método verifica estado
     public boolean verificaEstado(String estado){
-<span class="fc" id="L34">        ArrayList&lt;String&gt; estados = new ArrayList();</span>
-<span class="fc" id="L35">        estados.add(&quot;AC&quot;); estados.add(&quot;AL&quot;); estados.add(&quot;AP&quot;); estados.add(&quot;AM&quot;); </span>
-<span class="fc" id="L36">        estados.add(&quot;BA&quot;); estados.add(&quot;CE&quot;); estados.add(&quot;DF&quot;); estados.add(&quot;ES&quot;); </span>
-<span class="fc" id="L37">        estados.add(&quot;GO&quot;); estados.add(&quot;MA&quot;); estados.add(&quot;MT&quot;); estados.add(&quot;MS&quot;); </span>
-<span class="fc" id="L38">        estados.add(&quot;MG&quot;); estados.add(&quot;PA&quot;); estados.add(&quot;PB&quot;); estados.add(&quot;PR&quot;); </span>
-<span class="fc" id="L39">        estados.add(&quot;PE&quot;); estados.add(&quot;PI&quot;); estados.add(&quot;RJ&quot;); estados.add(&quot;RN&quot;);</span>
-<span class="fc" id="L40">        estados.add(&quot;RS&quot;); estados.add(&quot;RO&quot;); estados.add(&quot;RR&quot;); estados.add(&quot;SC&quot;); </span>
-<span class="fc" id="L41">        estados.add(&quot;SP&quot;); estados.add(&quot;SE&quot;); estados.add(&quot;TO&quot;);</span>
-<span class="fc" id="L42">        int i = 0, n = estados.size();</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        for(i=0; i&lt;n; i++){</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">            if(estados.get(i).equals(estado))</span>
-<span class="fc" id="L45">                return true;</span>
+<span class="fc" id="L36">        ArrayList&lt;String&gt; estados = new ArrayList();</span>
+<span class="fc" id="L37">        estados.add(&quot;AC&quot;); estados.add(&quot;AL&quot;); estados.add(&quot;AP&quot;); estados.add(&quot;AM&quot;); </span>
+<span class="fc" id="L38">        estados.add(&quot;BA&quot;); estados.add(&quot;CE&quot;); estados.add(&quot;DF&quot;); estados.add(&quot;ES&quot;); </span>
+<span class="fc" id="L39">        estados.add(&quot;GO&quot;); estados.add(&quot;MA&quot;); estados.add(&quot;MT&quot;); estados.add(&quot;MS&quot;); </span>
+<span class="fc" id="L40">        estados.add(&quot;MG&quot;); estados.add(&quot;PA&quot;); estados.add(&quot;PB&quot;); estados.add(&quot;PR&quot;); </span>
+<span class="fc" id="L41">        estados.add(&quot;PE&quot;); estados.add(&quot;PI&quot;); estados.add(&quot;RJ&quot;); estados.add(&quot;RN&quot;);</span>
+<span class="fc" id="L42">        estados.add(&quot;RS&quot;); estados.add(&quot;RO&quot;); estados.add(&quot;RR&quot;); estados.add(&quot;SC&quot;); </span>
+<span class="fc" id="L43">        estados.add(&quot;SP&quot;); estados.add(&quot;SE&quot;); estados.add(&quot;TO&quot;);</span>
+<span class="fc" id="L44">        int i = 0, n = estados.size();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for(i=0; i&lt;n; i++){</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if(estados.get(i).equals(estado))</span>
+<span class="fc" id="L47">                return true;</span>
         }
-<span class="fc" id="L47">        return false;</span>
+<span class="fc" id="L49">        return false;</span>
     }
     
     //Método valida E-mail
     public boolean validaEmail(String email) throws Exception {
-<span class="pc bpc" id="L52" title="1 of 6 branches missed.">        if (email.length() &gt;= 5 &amp;&amp; email.length() &lt;= 100 &amp;&amp; email != null){</span>
-<span class="fc" id="L53">            String ex = &quot;^(\\w[\\w\\.\\-]+){3,}@(\\w[\\w\\-]+\\.)+[a-z]{2,4}$&quot;;</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">            if(email.matches(ex)){</span>
-<span class="fc" id="L55">                return true;</span>
+<span class="fc bfc" id="L54" title="All 4 branches covered.">        if (email.length() &gt;= 5 &amp;&amp; email.length() &lt;= 100){</span>
+<span class="fc" id="L55">            String ex = &quot;^(\\w[\\w\\.\\-]+){3,}@(\\w[\\w\\-]+\\.)+[a-z]{2,4}$&quot;;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            if(email.matches(ex)){</span>
+<span class="fc" id="L57">                return true;</span>
             } else {
-<span class="fc" id="L57">                throw new Exception(&quot;E-mail inválido&quot;);</span>
+<span class="fc" id="L59">                throw new Exception(&quot;E-mail inválido&quot;);</span>
             }    
         }else {
-<span class="fc" id="L60">                throw new Exception(&quot;E-mail inválido&quot;);</span>
+<span class="fc" id="L62">                throw new Exception(&quot;E-mail inválido&quot;);</span>
         }
     }
     
     //Método valida Senha
     public boolean validaSenha (String senha) throws Exception {
-<span class="fc bfc" id="L66" title="All 2 branches covered.">        if(senha.length() &gt;= 8){</span>
-<span class="fc" id="L67">            return true;</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if(senha.length() &gt;= 8){</span>
+<span class="fc" id="L69">            return true;</span>
         } else {
-<span class="fc" id="L69">            throw new Exception(&quot;Senha inválida&quot;);</span>
+<span class="fc" id="L71">            throw new Exception(&quot;Senha inválida&quot;);</span>
         }    
     }
     
     //Método valida Nome do Produto
     public boolean validaNomeProduto(String nome) throws Exception {
-<span class="fc bfc" id="L75" title="All 4 branches covered.">        if (nome.length() &gt; 2 &amp;&amp; nome.length() &lt; 51) {</span>
-<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (nome.matches(&quot;([a-zA-Z]+\\ ?)+&quot;)) {</span>
-<span class="fc" id="L77">                return true;</span>
-            } else {
-<span class="fc" id="L79">                throw new Exception(&quot;Nome invalido&quot;);</span>
-            }
-        } else {
-<span class="fc" id="L82">            throw new Exception(&quot;Nome invalido&quot;);</span>
+<span class="fc bfc" id="L77" title="All 4 branches covered.">        if(nome.length() &lt; 2 || nome.length() &gt; 50){</span>
+<span class="fc" id="L78">            throw new Exception(&quot;Nome Inválido&quot;);</span>
         }
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        else if(nome.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L81">            throw new Exception(&quot;Nome Inválido&quot;);</span>
+        }
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        else if(nome.matches(&quot;.*[0|1|2|3|4|5|6|7|8|9].*&quot;)){</span>
+<span class="fc" id="L84">            throw new Exception(&quot;Nome Inválido&quot;);</span>
+        }
+<span class="fc" id="L86">        return true;</span>
     }
     
     //Método validar Descrição do Produto
     public boolean validaDescriçãoProduto(String descr) throws Exception {
-<span class="fc bfc" id="L88" title="All 2 branches covered.">        if (descr.length() &lt; 101) {</span>
-<span class="fc" id="L89">            return true;</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (descr.length() &lt; 101) {</span>
+<span class="fc" id="L92">            return true;</span>
         } else {
-<span class="fc" id="L91">            throw new Exception(&quot;Descrição invalida&quot;);</span>
+<span class="fc" id="L94">            throw new Exception(&quot;Descrição Inválida&quot;);</span>
         }
     }
 
     //Método validar Quantidade do Produto
-    public boolean quantidadeProduto(String aux) throws Exception {
-<span class="fc bfc" id="L97" title="All 2 branches covered.">        if (aux.length() &lt; 6) {</span>
-<span class="fc bfc" id="L98" title="All 2 branches covered.">            if (aux.matches(&quot;[1-9][0-9]{0,4}&quot;)) {</span>
-<span class="fc" id="L99">                return true;</span>
-            } else {
-<span class="fc" id="L101">                throw new Exception(&quot;Quantidade invalida&quot;);</span>
-            }
-        } else {
-<span class="fc" id="L104">            throw new Exception(&quot;Quantidade invalida&quot;);</span>
+    public boolean validaQuantidadeProduto(String aux) throws Exception {
+<span class="fc bfc" id="L100" title="All 4 branches covered.">        if(aux.length() &lt; 1 || aux.length() &gt; 6){</span>
+<span class="fc" id="L101">            throw new Exception(&quot;Quantidade Inválida&quot;);</span>
         }
-    }
-
-    //Método para validar Código Produto
-    public boolean validaIdProduto(int idProduto) throws Exception {
-<span class="fc bfc" id="L110" title="All 4 branches covered.">        if (idProduto &gt;= 1 &amp;&amp; idProduto &lt;= 1000000) {</span>
-<span class="fc" id="L111">            return true;</span>
-        } else {
-<span class="fc" id="L113">            throw new Exception(&quot;Codigo Produto invalido&quot;);</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        else if(aux.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L104">            throw new Exception(&quot;Quantidade Inválida&quot;);</span>
         }
+<span class="fc" id="L106">        return true;</span>
     }
 
     //Método para validar Preço
-    public boolean validaPreco(double preco) throws Exception {
-<span class="fc bfc" id="L119" title="All 4 branches covered.">        if (preco &gt;= 0 &amp;&amp; preco &lt;= 1000000) {</span>
-<span class="fc" id="L120">            return true;</span>
-        } else {
-<span class="fc" id="L122">            throw new Exception(&quot;Preço invalido&quot;);</span>
+    public boolean validaPreco(String preco) throws Exception {
+<span class="fc bfc" id="L111" title="All 4 branches covered.">        if(preco.length() &lt; 1 || preco.length() &gt; 6){</span>
+<span class="fc" id="L112">            throw new Exception(&quot;Preço Inválido&quot;);</span>
         }
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        else if(preco.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;| ].*&quot;)){</span>
+<span class="fc" id="L115">            throw new Exception(&quot;Preço Inválido&quot;);</span>
+        }
+<span class="fc" id="L117">        double aux = Double.parseDouble(preco);</span>
+<span class="fc bfc" id="L118" title="All 4 branches covered.">        if(aux &lt;= 0.0 || aux &gt;= 1000000.0){</span>
+<span class="fc" id="L119">            throw new Exception(&quot;Preço Inválido&quot;);</span>
+        }
+<span class="fc" id="L121">        return true;       </span>
     }
     
     //Método para validar Cargo
     public boolean validaCargo(String cargo) throws Exception{
-<span class="nc bnc" id="L128" title="All 2 branches missed.">        if(cargo.length() &gt; 50){</span>
-<span class="nc" id="L129">            throw new Exception(&quot;Cargo Inválido&quot;);</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        if(cargo.length() &gt; 50){</span>
+<span class="fc" id="L127">            throw new Exception(&quot;Cargo Inválido&quot;);</span>
         }
-<span class="nc bnc" id="L131" title="All 2 branches missed.">        else if(cargo.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="nc" id="L132">            throw new Exception(&quot;Cargo Inválido&quot;);</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        else if(cargo.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L130">            throw new Exception(&quot;Cargo Inválido&quot;);</span>
         }
-<span class="nc bnc" id="L134" title="All 2 branches missed.">        else if(!verificaCargo(cargo)){</span>
-<span class="nc" id="L135">            throw new Exception(&quot;Cargo Inválido&quot;);</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        else if(!verificaCargo(cargo)){</span>
+<span class="fc" id="L133">            throw new Exception(&quot;Cargo Inválido&quot;);</span>
         }
-<span class="nc" id="L137">        return true;</span>
+<span class="fc" id="L135">        return true;</span>
     }
 
     //Método para valida Nome
     public boolean validaNome(String nome) throws Exception{
-<span class="fc bfc" id="L142" title="All 4 branches covered.">        if(nome.length() &lt; 5 || nome.length() &gt; 50){</span>
-<span class="fc" id="L143">            throw new Exception(&quot;Nome Inválido&quot;);</span>
+<span class="fc bfc" id="L140" title="All 4 branches covered.">        if(nome.length() &lt; 5 || nome.length() &gt; 50){</span>
+<span class="fc" id="L141">            throw new Exception(&quot;Nome Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L145" title="All 2 branches covered.">        else if(nome.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L146">            throw new Exception(&quot;Nome Inválido&quot;);</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">        else if(nome.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L144">            throw new Exception(&quot;Nome Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L148" title="All 2 branches covered.">        else if(nome.matches(&quot;.*[0|1|2|3|4|5|6|7|8|9].*&quot;)){</span>
-<span class="fc" id="L149">            throw new Exception(&quot;Nome Inválido&quot;);</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        else if(nome.matches(&quot;.*[0|1|2|3|4|5|6|7|8|9].*&quot;)){</span>
+<span class="fc" id="L147">            throw new Exception(&quot;Nome Inválido&quot;);</span>
         }
-<span class="fc" id="L151">        return true;</span>
+<span class="fc" id="L149">        return true;</span>
     }
     
     //Método para valida RG
     public boolean validaRG(String rg) throws Exception{
-<span class="fc" id="L156">        String RG = &quot;\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d&quot;;</span>
-<span class="fc bfc" id="L157" title="All 4 branches covered.">        if(rg.length() &lt; 12 || rg.length() &gt; 12){</span>
-<span class="fc" id="L158">            throw new Exception(&quot;RG Inválido&quot;);</span>
+<span class="fc" id="L154">        String RG = &quot;\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d&quot;;</span>
+<span class="fc bfc" id="L155" title="All 4 branches covered.">        if(rg.length() &lt; 12 || rg.length() &gt; 12){</span>
+<span class="fc" id="L156">            throw new Exception(&quot;RG Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L160" title="All 2 branches covered.">        else if(!rg.matches(RG)){</span>
-<span class="fc" id="L161">            throw new Exception(&quot;RG Inválido&quot;);</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        else if(!rg.matches(RG)){</span>
+<span class="fc" id="L159">            throw new Exception(&quot;RG Inválido&quot;);</span>
         }
-<span class="fc" id="L163">        return true;</span>
+<span class="fc" id="L161">        return true;</span>
     }
     
     //Método para valida CPF
     public boolean validaCPF(String cpf) throws Exception{
-<span class="fc" id="L168">        String CPF = &quot;\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d&quot;;</span>
-<span class="fc bfc" id="L169" title="All 4 branches covered.">        if(cpf.length() &lt; 14 || cpf.length() &gt; 14){</span>
-<span class="fc" id="L170">            throw new Exception(&quot;CPF Inválido&quot;);</span>
+<span class="fc" id="L166">        String CPF = &quot;\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d&quot;;</span>
+<span class="fc bfc" id="L167" title="All 4 branches covered.">        if(cpf.length() &lt; 14 || cpf.length() &gt; 14){</span>
+<span class="fc" id="L168">            throw new Exception(&quot;CPF Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L172" title="All 2 branches covered.">        else if(!cpf.matches(CPF)){</span>
-<span class="fc" id="L173">            throw new Exception(&quot;CPF Inválido&quot;);</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        else if(!cpf.matches(CPF)){</span>
+<span class="fc" id="L171">            throw new Exception(&quot;CPF Inválido&quot;);</span>
         }
-<span class="fc" id="L175">        return true;</span>
+<span class="fc" id="L173">        return true;</span>
     }
     
     //Método para valida Data de Nascimento
     public boolean validaDataDeNascimento(String dataDeNascimento) throws Exception{
-<span class="fc" id="L180">        String Ddn = &quot;\\d\\d/\\d\\d/\\d\\d\\d\\d&quot;;</span>
-<span class="fc bfc" id="L181" title="All 4 branches covered.">        if(dataDeNascimento.length() &lt; 10 || dataDeNascimento.length() &gt; 10){</span>
-<span class="fc" id="L182">            throw new Exception(&quot;Data de Nascimento Inválida&quot;);</span>
+<span class="fc" id="L178">        String Ddn = &quot;\\d\\d/\\d\\d/\\d\\d\\d\\d&quot;;</span>
+<span class="fc bfc" id="L179" title="All 4 branches covered.">        if(dataDeNascimento.length() &lt; 10 || dataDeNascimento.length() &gt; 10){</span>
+<span class="fc" id="L180">            throw new Exception(&quot;Data de Nascimento Inválida&quot;);</span>
         }
-<span class="fc bfc" id="L184" title="All 2 branches covered.">        else if(!dataDeNascimento.matches(Ddn)){</span>
-<span class="fc" id="L185">            throw new Exception(&quot;Data de Nascimento Inválida&quot;);</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        else if(!dataDeNascimento.matches(Ddn)){</span>
+<span class="fc" id="L183">            throw new Exception(&quot;Data de Nascimento Inválida&quot;);</span>
         }
-<span class="fc" id="L187">        return true;</span>
+<span class="fc" id="L185">        return true;</span>
     }
     
     //Método para validar Carteira de Trabalho
     public boolean validaCarteiraDeTrabalho(String carteiraDeTrabalho) throws Exception{
-<span class="fc" id="L192">        String Cdt = &quot;\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\d&quot;;</span>
-<span class="fc bfc" id="L193" title="All 4 branches covered.">        if(carteiraDeTrabalho.length() &lt; 13 || carteiraDeTrabalho.length() &gt; 13){</span>
-<span class="fc" id="L194">            throw new Exception(&quot;Carteira de Trabalho Inválida&quot;);</span>
+<span class="fc" id="L190">        String Cdt = &quot;\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\d&quot;;</span>
+<span class="fc bfc" id="L191" title="All 4 branches covered.">        if(carteiraDeTrabalho.length() &lt; 13 || carteiraDeTrabalho.length() &gt; 13){</span>
+<span class="fc" id="L192">            throw new Exception(&quot;Carteira de Trabalho Inválida&quot;);</span>
         }
-<span class="fc bfc" id="L196" title="All 2 branches covered.">        else if(!carteiraDeTrabalho.matches(Cdt)){</span>
-<span class="fc" id="L197">            throw new Exception(&quot;Carteira de Trabalho Inválida&quot;);</span>
+<span class="fc bfc" id="L194" title="All 2 branches covered.">        else if(!carteiraDeTrabalho.matches(Cdt)){</span>
+<span class="fc" id="L195">            throw new Exception(&quot;Carteira de Trabalho Inválida&quot;);</span>
         }
-<span class="fc" id="L199">        return true;</span>
+<span class="fc" id="L197">        return true;</span>
     }
     
     //Método para validar CEP
     public boolean validaCEP(String cep) throws Exception{
-<span class="fc" id="L204">        String CEP = &quot;\\d\\d\\d\\d\\d-\\d\\d\\d&quot;;</span>
-<span class="fc bfc" id="L205" title="All 4 branches covered.">        if(cep.length() &lt; 9 || cep.length() &gt; 9){</span>
-<span class="fc" id="L206">            throw new Exception(&quot;CEP Inválido&quot;);</span>
+<span class="fc" id="L202">        String CEP = &quot;\\d\\d\\d\\d\\d-\\d\\d\\d&quot;;</span>
+<span class="fc bfc" id="L203" title="All 4 branches covered.">        if(cep.length() &lt; 9 || cep.length() &gt; 9){</span>
+<span class="fc" id="L204">            throw new Exception(&quot;CEP Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L208" title="All 2 branches covered.">        else if(!cep.matches(CEP)){</span>
-<span class="fc" id="L209">            throw new Exception(&quot;CEP Inválido&quot;);           </span>
+<span class="fc bfc" id="L206" title="All 2 branches covered.">        else if(!cep.matches(CEP)){</span>
+<span class="fc" id="L207">            throw new Exception(&quot;CEP Inválido&quot;);           </span>
         }
-<span class="fc" id="L211">        return true;</span>
+<span class="fc" id="L209">        return true;</span>
     }
     
     //Método para validar Logradouro
     public boolean validaLogradouro(String logradouro) throws Exception{
-<span class="fc bfc" id="L216" title="All 4 branches covered.">        if(logradouro.length() &lt; 2 || logradouro.length() &gt; 50){</span>
-<span class="fc" id="L217">            throw new Exception(&quot;Logradouro Inválido&quot;);</span>
+<span class="fc bfc" id="L214" title="All 4 branches covered.">        if(logradouro.length() &lt; 2 || logradouro.length() &gt; 50){</span>
+<span class="fc" id="L215">            throw new Exception(&quot;Logradouro Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L219" title="All 2 branches covered.">        else if(logradouro.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L220">            throw new Exception(&quot;Logradouro Inválido&quot;);</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        else if(logradouro.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L218">            throw new Exception(&quot;Logradouro Inválido&quot;);</span>
         }
-<span class="fc" id="L222">        return true;</span>
+<span class="fc" id="L220">        return true;</span>
     }
     
     //Método para validar Numero
     public boolean validaNumero(String numero) throws Exception{
-<span class="pc bpc" id="L227" title="1 of 4 branches missed.">        if(numero.length() &lt; 1 || numero.length() &gt; 6){</span>
-<span class="fc" id="L228">            throw new Exception(&quot;Número Invalido&quot;);</span>
+<span class="fc bfc" id="L225" title="All 4 branches covered.">        if(numero.length() &lt; 1 || numero.length() &gt; 6){</span>
+<span class="fc" id="L226">            throw new Exception(&quot;Número Invalido&quot;);</span>
         }
-<span class="fc bfc" id="L230" title="All 2 branches covered.">        else if(numero.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L231">            throw new Exception(&quot;Número Invalido&quot;);</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">        else if(numero.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L229">            throw new Exception(&quot;Número Invalido&quot;);</span>
         }
-<span class="fc" id="L233">        return true;</span>
+<span class="fc" id="L231">        return true;</span>
     }
     
     //Método para validar Complemento
     public boolean validaComplemento(String complemento) throws Exception{
-<span class="fc bfc" id="L238" title="All 2 branches covered.">        if(complemento.length() &gt; 50){</span>
-<span class="fc" id="L239">            throw new Exception(&quot;Complemento Inválido&quot;);</span>
+<span class="fc bfc" id="L236" title="All 2 branches covered.">        if(complemento.length() &gt; 50){</span>
+<span class="fc" id="L237">            throw new Exception(&quot;Complemento Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L241" title="All 2 branches covered.">        else if(complemento.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L242">            throw new Exception(&quot;Complemento Inválido&quot;);</span>
+<span class="fc bfc" id="L239" title="All 2 branches covered.">        else if(complemento.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L240">            throw new Exception(&quot;Complemento Inválido&quot;);</span>
         }
-<span class="fc" id="L244">        return true;</span>
+<span class="fc" id="L242">        return true;</span>
     }
     
     //Método para validar Bairro
     public boolean validaBairro(String bairro) throws Exception{
-<span class="fc bfc" id="L249" title="All 4 branches covered.">        if(bairro.length() &lt; 2 || bairro.length() &gt; 50){</span>
-<span class="fc" id="L250">            throw new Exception(&quot;Bairro Inválido&quot;);</span>
+<span class="fc bfc" id="L247" title="All 4 branches covered.">        if(bairro.length() &lt; 2 || bairro.length() &gt; 50){</span>
+<span class="fc" id="L248">            throw new Exception(&quot;Bairro Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L252" title="All 2 branches covered.">        else if(bairro.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L253">            throw new Exception(&quot;Bairro Inválido&quot;);</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">        else if(bairro.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L251">            throw new Exception(&quot;Bairro Inválido&quot;);</span>
         }
-<span class="fc" id="L255">        return true;</span>
+<span class="fc" id="L253">        return true;</span>
     }
     
     //Método para validar Cidade
     public boolean validaCidade(String cidade) throws Exception{
-<span class="fc bfc" id="L260" title="All 4 branches covered.">        if(cidade.length() &lt; 2 || cidade.length() &gt; 50){</span>
-<span class="fc" id="L261">            throw new Exception(&quot;Cidade Inválida&quot;);</span>
+<span class="fc bfc" id="L258" title="All 4 branches covered.">        if(cidade.length() &lt; 2 || cidade.length() &gt; 50){</span>
+<span class="fc" id="L259">            throw new Exception(&quot;Cidade Inválida&quot;);</span>
         }
-<span class="fc bfc" id="L263" title="All 2 branches covered.">        else if(cidade.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L264">            throw new Exception(&quot;Cidade Inválida&quot;);</span>
+<span class="fc bfc" id="L261" title="All 2 branches covered.">        else if(cidade.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L262">            throw new Exception(&quot;Cidade Inválida&quot;);</span>
         }
-<span class="fc" id="L266">        return true;</span>
+<span class="fc" id="L264">        return true;</span>
     }
     
     //Método para validar Estado
     public boolean validaEstado(String estado) throws Exception{
-<span class="fc bfc" id="L271" title="All 4 branches covered.">        if(estado.length() &lt; 2 || estado.length() &gt; 2){</span>
-<span class="fc" id="L272">            throw new Exception(&quot;Estado Inválido&quot;);</span>
+<span class="fc bfc" id="L269" title="All 4 branches covered.">        if(estado.length() &lt; 2 || estado.length() &gt; 2){</span>
+<span class="fc" id="L270">            throw new Exception(&quot;Estado Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L274" title="All 2 branches covered.">        else if(estado.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
-<span class="fc" id="L275">            throw new Exception(&quot;Estado Inválido&quot;);</span>
+<span class="fc bfc" id="L272" title="All 2 branches covered.">        else if(estado.matches(&quot;.*[!|@|#|$|%|&amp;|*|(|)|=|+|;].*&quot;)){</span>
+<span class="fc" id="L273">            throw new Exception(&quot;Estado Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L277" title="All 2 branches covered.">        else if(!verificaEstado(estado)){</span>
-<span class="fc" id="L278">            throw new Exception(&quot;Estado Inválido&quot;);</span>
+<span class="fc bfc" id="L275" title="All 2 branches covered.">        else if(!verificaEstado(estado)){</span>
+<span class="fc" id="L276">            throw new Exception(&quot;Estado Inválido&quot;);</span>
         }
-<span class="fc" id="L280">        return true;</span>
+<span class="fc" id="L278">        return true;</span>
     }
     
     //Método para validar Título de Eleitor
     public boolean validaTituloDeEleitor(String tituloDeEleitor) throws Exception{
-<span class="fc" id="L285">        String Tde = &quot;\\d\\d\\d\\d \\d\\d\\d\\d \\d\\d\\d\\d&quot;;</span>
-<span class="fc bfc" id="L286" title="All 4 branches covered.">        if(tituloDeEleitor.length() &lt; 14 || tituloDeEleitor.length() &gt; 14){</span>
-<span class="fc" id="L287">            throw new Exception(&quot;Título de Eleitor Inválido&quot;);</span>
+<span class="fc" id="L283">        String Tde = &quot;\\d\\d\\d\\d \\d\\d\\d\\d \\d\\d\\d\\d&quot;;</span>
+<span class="fc bfc" id="L284" title="All 4 branches covered.">        if(tituloDeEleitor.length() &lt; 14 || tituloDeEleitor.length() &gt; 14){</span>
+<span class="fc" id="L285">            throw new Exception(&quot;Título de Eleitor Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L289" title="All 2 branches covered.">        else if(!tituloDeEleitor.matches(Tde)){</span>
-<span class="fc" id="L290">            throw new Exception(&quot;Título de Eleitor Inválido&quot;);</span>
+<span class="fc bfc" id="L287" title="All 2 branches covered.">        else if(!tituloDeEleitor.matches(Tde)){</span>
+<span class="fc" id="L288">            throw new Exception(&quot;Título de Eleitor Inválido&quot;);</span>
         }
-<span class="fc" id="L292">        return true;</span>
+<span class="fc" id="L290">        return true;</span>
     }
     
     //Método para validar Cartão do Programa Integração Social (PIS)
     public boolean validaProgramaIntegacaoSocial(String programaIntegracaoSocial) throws Exception{
-<span class="fc" id="L297">        String Pis = &quot;\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d\\d&quot;;</span>
-<span class="fc bfc" id="L298" title="All 4 branches covered.">        if(programaIntegracaoSocial.length() &lt; 14 || programaIntegracaoSocial.length() &gt; 14){</span>
-<span class="fc" id="L299">            throw new Exception(&quot;Cartão do Programa Integração Social (PIS) Inválido&quot;);</span>
+<span class="fc" id="L295">        String Pis = &quot;\\d\\d.\\d\\d\\d\\d\\d.\\d\\d-\\d\\d&quot;;</span>
+<span class="fc bfc" id="L296" title="All 4 branches covered.">        if(programaIntegracaoSocial.length() &lt; 14 || programaIntegracaoSocial.length() &gt; 14){</span>
+<span class="fc" id="L297">            throw new Exception(&quot;Cartão do Programa Integração Social (PIS) Inválido&quot;);</span>
         }
-<span class="pc bpc" id="L301" title="1 of 2 branches missed.">        else if(programaIntegracaoSocial.matches(&quot;.*\\D^-.*&quot;)){</span>
-<span class="nc" id="L302">            throw new Exception(&quot;Cartão do Programa Integração Social (PIS) Inválido&quot;);</span>
+<span class="fc bfc" id="L299" title="All 2 branches covered.">        else if(!programaIntegracaoSocial.matches(Pis)){</span>
+<span class="fc" id="L300">            throw new Exception(&quot;Cartão do Programa Integração Social (PIS) Inválido&quot;);</span>
         }
-<span class="fc bfc" id="L304" title="All 2 branches covered.">        else if(!programaIntegracaoSocial.matches(Pis)){</span>
-<span class="fc" id="L305">            throw new Exception(&quot;Cartão do Programa Integração Social (PIS) Inválido&quot;);</span>
-        }
-<span class="fc" id="L307">        return true;</span>
+<span class="fc" id="L302">        return true;</span>
     }
-    
-    //Método trata valores inteiros
-    public int trataInt(String num) throws Exception{
-<span class="nc bnc" id="L312" title="All 2 branches missed.">        if(num.matches(&quot;[0-9]*&quot;)){</span>
-<span class="nc" id="L313">        return Integer.parseInt(num);</span>
-        }else{
-<span class="nc" id="L315">         throw new Exception(&quot;Número Invalido&quot;);</span>
-        }
-    }
-    
+      
     //Método para validar todos os campos de Funcionário
     public boolean validaFuncionario(Funcionario fnr)throws Exception{
         try{
-<span class="fc" id="L322">            validaNome(fnr.getNome());</span>
-<span class="fc" id="L323">            validaRG(fnr.getRg());</span>
-<span class="fc" id="L324">            validaCPF(fnr.getCpf());</span>
-<span class="fc" id="L325">            validaDataDeNascimento(fnr.getDataNasc());        </span>
-<span class="fc" id="L326">            validaCarteiraDeTrabalho(fnr.getCartTrab());        </span>
-<span class="fc" id="L327">            validaCEP(fnr.getComprovante_end().getCep());       </span>
-<span class="fc" id="L328">            validaLogradouro(fnr.getComprovante_end().getLogradouro());       </span>
-<span class="fc" id="L329">            validaNumero(Integer.toString(fnr.getComprovante_end().getNumero()));</span>
-<span class="fc" id="L330">            validaComplemento(fnr.getComprovante_end().getComple());  </span>
-<span class="fc" id="L331">            validaBairro(fnr.getComprovante_end().getBairro());</span>
-<span class="fc" id="L332">            validaCidade(fnr.getComprovante_end().getCidade());</span>
-<span class="fc" id="L333">            validaEstado(fnr.getComprovante_end().getEstado());</span>
-<span class="fc" id="L334">            validaTituloDeEleitor(fnr.getTituloEl());</span>
-<span class="fc" id="L335">            validaProgramaIntegacaoSocial(fnr.getPis());</span>
-            //validaCargo(fnr.getCargo());
-<span class="fc" id="L337">        }catch(Exception ex){</span>
-<span class="fc" id="L338">            throw new Exception(ex.getMessage());</span>
-<span class="fc" id="L339">        }</span>
-<span class="fc" id="L340">        return true;</span>
+<span class="fc" id="L308">            validaNome(fnr.getNome());</span>
+<span class="fc" id="L309">            validaRG(fnr.getRg());</span>
+<span class="fc" id="L310">            validaCPF(fnr.getCpf());</span>
+<span class="fc" id="L311">            validaDataDeNascimento(fnr.getDataNasc());        </span>
+<span class="fc" id="L312">            validaCarteiraDeTrabalho(fnr.getCartTrab());        </span>
+<span class="fc" id="L313">            validaCEP(fnr.getComprovante_end().getCep());       </span>
+<span class="fc" id="L314">            validaLogradouro(fnr.getComprovante_end().getLogradouro());       </span>
+<span class="fc" id="L315">            validaNumero(Integer.toString(fnr.getComprovante_end().getNumero()));</span>
+<span class="fc" id="L316">            validaComplemento(fnr.getComprovante_end().getComple());  </span>
+<span class="fc" id="L317">            validaBairro(fnr.getComprovante_end().getBairro());</span>
+<span class="fc" id="L318">            validaCidade(fnr.getComprovante_end().getCidade());</span>
+<span class="fc" id="L319">            validaEstado(fnr.getComprovante_end().getEstado());</span>
+<span class="fc" id="L320">            validaTituloDeEleitor(fnr.getTituloEl());</span>
+<span class="fc" id="L321">            validaProgramaIntegacaoSocial(fnr.getPis());</span>
+<span class="fc" id="L322">            validaCargo(fnr.getCargo());</span>
+<span class="fc" id="L323">        }catch(Exception ex){</span>
+<span class="fc" id="L324">            throw new Exception(ex.getMessage());</span>
+<span class="fc" id="L325">        }</span>
+<span class="fc" id="L326">        return true;</span>
     }
+    
+    //Método para validar todos os campos de Produto
+    public boolean validaProduto(Produtos pd)throws Exception{
+        try{
+<span class="fc" id="L332">            validaDescriçãoProduto(pd.getDescr());</span>
+<span class="fc" id="L333">            validaNomeProduto(pd.getNome());</span>
+<span class="fc" id="L334">            validaQuantidadeProduto((pd.getQtd().toString()));</span>
+<span class="fc" id="L335">            validaPreco(pd.getPreco().toString());</span>
+<span class="fc" id="L336">        }catch(Exception ex){</span>
+<span class="fc" id="L337">            throw new Exception(ex.getMessage());</span>
+<span class="fc" id="L338">        }</span>
+<span class="fc" id="L339">        return true;</span>
+    }
+    
+    //Método para validar todos os campos de Login
+    public boolean validaLogin(LoginSenha lg)throws Exception{
+        try{
+<span class="fc" id="L345">            validaEmail(lg.getNome());</span>
+<span class="fc" id="L346">            validaSenha(lg.getSenha());</span>
+            
+<span class="fc" id="L348">        }catch(Exception ex){</span>
+<span class="fc" id="L349">            throw new Exception(ex.getMessage());</span>
+<span class="fc" id="L350">        }</span>
+<span class="fc" id="L351">        return true;</span>
+    }
+
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

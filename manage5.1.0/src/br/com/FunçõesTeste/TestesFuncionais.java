@@ -51,7 +51,7 @@ public class TestesFuncionais {
     
     //Método valida E-mail
     public boolean validaEmail(String email) throws Exception {
-        if (email.length() >= 5 && email.length() <= 100 && email != null){
+        if (email.length() >= 5 && email.length() <= 100){
             String ex = "^(\\w[\\w\\.\\-]+){3,}@(\\w[\\w\\-]+\\.)+[a-z]{2,4}$";
             if(email.matches(ex)){
                 return true;
@@ -74,15 +74,16 @@ public class TestesFuncionais {
     
     //Método valida Nome do Produto
     public boolean validaNomeProduto(String nome) throws Exception {
-        if (nome.length() > 2 && nome.length() < 51) {
-            if (nome.matches("([a-zA-Z]+\\ ?)+")) {
-                return true;
-            } else {
-                throw new Exception("Nome invalido");
-            }
-        } else {
-            throw new Exception("Nome invalido");
+        if(nome.length() < 2 || nome.length() > 50){
+            throw new Exception("Nome Inválido");
         }
+        else if(nome.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
+            throw new Exception("Nome Inválido");
+        }
+        else if(nome.matches(".*[0|1|2|3|4|5|6|7|8|9].*")){
+            throw new Exception("Nome Inválido");
+        }
+        return true;
     }
     
     //Método validar Descrição do Produto
@@ -90,39 +91,34 @@ public class TestesFuncionais {
         if (descr.length() < 101) {
             return true;
         } else {
-            throw new Exception("Descrição invalida");
+            throw new Exception("Descrição Inválida");
         }
     }
 
     //Método validar Quantidade do Produto
-    public boolean quantidadeProduto(String aux) throws Exception {
-        if (aux.length() < 6) {
-            if (aux.matches("[1-9][0-9]{0,4}")) {
-                return true;
-            } else {
-                throw new Exception("Quantidade invalida");
-            }
-        } else {
-            throw new Exception("Quantidade invalida");
+    public boolean validaQuantidadeProduto(String aux) throws Exception {
+        if(aux.length() < 1 || aux.length() > 6){
+            throw new Exception("Quantidade Inválida");
         }
-    }
-
-    //Método para validar Código Produto
-    public boolean validaIdProduto(int idProduto) throws Exception {
-        if (idProduto >= 1 && idProduto <= 1000000) {
-            return true;
-        } else {
-            throw new Exception("Codigo Produto invalido");
+        else if(aux.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;].*")){
+            throw new Exception("Quantidade Inválida");
         }
+        return true;
     }
 
     //Método para validar Preço
-    public boolean validaPreco(double preco) throws Exception {
-        if (preco >= 0.0 && preco <= 1000000.0) {
-            return true;
-        } else {
-            throw new Exception("Preço invalido");
+    public boolean validaPreco(String preco) throws Exception {
+        if(preco.length() < 1 || preco.length() > 6){
+            throw new Exception("Preço Inválido");
         }
+        else if(preco.matches(".*[!|@|#|$|%|&|*|(|)|=|+|;| ].*")){
+            throw new Exception("Preço Inválido");
+        }
+        double aux = Double.parseDouble(preco);
+        if(aux <= 0.0 || aux >= 1000000.0){
+            throw new Exception("Preço Inválido");
+        }
+        return true;       
     }
     
     //Método para validar Cargo
@@ -300,24 +296,12 @@ public class TestesFuncionais {
         if(programaIntegracaoSocial.length() < 14 || programaIntegracaoSocial.length() > 14){
             throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
-        else if(programaIntegracaoSocial.matches(".*\\D^-.*")){
-            throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
-        }
         else if(!programaIntegracaoSocial.matches(Pis)){
             throw new Exception("Cartão do Programa Integração Social (PIS) Inválido");
         }
         return true;
     }
-    
-    //Método trata valores inteiros
-    public int trataInt(String num) throws Exception{
-        if(num.matches("[0-9]*")){
-        return Integer.parseInt(num);
-        }else{
-         throw new Exception("Número Invalido");
-        }
-    }
-    
+      
     //Método para validar todos os campos de Funcionário
     public boolean validaFuncionario(Funcionario fnr)throws Exception{
         try{
@@ -335,7 +319,7 @@ public class TestesFuncionais {
             validaEstado(fnr.getComprovante_end().getEstado());
             validaTituloDeEleitor(fnr.getTituloEl());
             validaProgramaIntegacaoSocial(fnr.getPis());
-            //validaCargo(fnr.getCargo());
+            validaCargo(fnr.getCargo());
         }catch(Exception ex){
             throw new Exception(ex.getMessage());
         }
@@ -345,11 +329,10 @@ public class TestesFuncionais {
     //Método para validar todos os campos de Produto
     public boolean validaProduto(Produtos pd)throws Exception{
         try{
-            //validaIdProduto(pd.getIdProduto());
             validaDescriçãoProduto(pd.getDescr());
             validaNomeProduto(pd.getNome());
-            quantidadeProduto(Integer.toString(pd.getQtd()));
-            validaPreco(pd.getPreco());
+            validaQuantidadeProduto((pd.getQtd().toString()));
+            validaPreco(pd.getPreco().toString());
         }catch(Exception ex){
             throw new Exception(ex.getMessage());
         }

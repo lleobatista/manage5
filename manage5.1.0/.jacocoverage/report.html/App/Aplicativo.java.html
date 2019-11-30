@@ -5,41 +5,86 @@
  */
 package App;
 
+import br.com.Cadastro.PosteGreJPA.FuncionarioJpaController;
+import br.com.Comprovante_end.Comprovante_endJpaController;
 import br.com.DomainMode.PostGresJPA.LoginSenha;
 import br.com.DomainMode.PostGresJPA.LoginSenhaJpaController;
+import br.com.Produtos.ProdutosJpaController;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.Comprovante_end.Comprovante_end;
+import br.com.Produtos.Produtos;
 
 /**
  *
  * @author Keila Emy
  */
-<span class="nc" id="L19">public class Aplicativo {</span>
+<span class="nc" id="L25">public class Aplicativo {</span>
+    
+<span class="nc" id="L27">    EntityManagerFactory objFactory = Persistence.createEntityManagerFactory(&quot;manage5PU&quot;);</span>
+<span class="nc" id="L28">    EntityManager manager = objFactory.createEntityManager();</span>
+<span class="nc" id="L29">    LoginSenhaJpaController loginJpa = new LoginSenhaJpaController(objFactory);</span>
+<span class="nc" id="L30">    FuncionarioJpaController funcJpa = new FuncionarioJpaController(objFactory);</span>
+<span class="nc" id="L31">    ProdutosJpaController prodJpa = new ProdutosJpaController(objFactory);</span>
 
-    public static void main(String args[]) {
-
-<span class="nc" id="L23">        EntityManagerFactory objFactory = Persistence.createEntityManagerFactory(&quot;PostGresJPAPU&quot;);</span>
-<span class="nc" id="L24">        EntityManager manager = objFactory.createEntityManager();</span>
-
-<span class="nc" id="L26">        LoginSenhaJpaController jpa = new LoginSenhaJpaController(objFactory);</span>
-<span class="nc" id="L27">        List&lt;LoginSenha&gt; lista = jpa.findLoginSenhaEntities();</span>
-        
-
-<span class="nc" id="L30">        LoginSenha ls = new LoginSenha();</span>
-        
-<span class="nc" id="L32">        ls.setNome(&quot;leandro&quot;);</span>
-<span class="nc" id="L33">        ls.setSenha(&quot;leandro123vai&quot;);</span>
-<span class="nc" id="L34">        ls.setSenha(Criptografar.encriptografar(ls.getSenha()));</span>
-        
-        
-<span class="nc" id="L37">        jpa.create(ls);</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        for(LoginSenha l : lista){</span>
-<span class="nc" id="L39">            System.out.println(&quot;Cod.:&quot;+l.getId()+&quot;Nome:&quot;+l.getNome()+&quot;Senha:&quot;+l.getSenha());</span>
-<span class="nc" id="L40">        }</span>
-
-<span class="nc" id="L42">    }</span>
-
+    //Método validar Login com Banco de Dados
+    public boolean validaLoginBD(LoginSenha login) throws Exception{
+<span class="nc" id="L35">        List&lt;LoginSenha&gt; lista = loginJpa.findLoginSenhaEntities();</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        for(LoginSenha l : lista){</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if(l.getNome().equals(login.getNome())){</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                if(l.getSenha().equals(Criptografar.encriptografar(login.getSenha())))</span>
+<span class="nc" id="L39">                    return true;</span>
+            }
+<span class="nc" id="L41">        }</span>
+<span class="nc" id="L42">        throw new Exception(&quot;Usuário inválido!&quot;);</span>
+    }
+    
+    //Metodo Lista Funcionarios
+    public List&lt;Funcionario&gt; selectFuncionario(){
+<span class="nc" id="L47">        List&lt;Funcionario&gt; lista = funcJpa.findFuncionarioEntities();</span>
+<span class="nc" id="L48">        return lista;</span>
+    }
+    
+    //Metodo Lista Produtos
+    public List&lt;Produtos&gt; selectProduto(){
+<span class="nc" id="L53">        List&lt;Produtos&gt; lista = prodJpa.findProdutosEntities();</span>
+<span class="nc" id="L54">        return lista;</span>
+    }
+    
+    //Método Cadastra Produto
+    public void cadProduto(Produtos prod){
+<span class="nc" id="L59">        prodJpa.create(prod);</span>
+<span class="nc" id="L60">    }</span>
 }
+
+
+/*
+public static void main(String args[]) {
+    EntityManagerFactory objFactory = Persistence.createEntityManagerFactory(&quot;manage5PU&quot;);
+    EntityManager manager = objFactory.createEntityManager();
+    FuncionarioJpaController funcJpa = new FuncionarioJpaController(objFactory);
+
+    LoginSenhaJpaController loginJpa = new LoginSenhaJpaController(objFactory);
+    FuncionarioJpaController jpa1 = new FuncionarioJpaController(objFactory);
+    ProdutosJpaController jpa2 = new ProdutosJpaController(objFactory);
+    Comprovante_endJpaController jpa3 = new Comprovante_endJpaController(objFactory);
+       
+    LoginSenha ls = new LoginSenha();
+    Funcionario func = new Funcionario();
+    Comprovante_end end = new Comprovante_end();
+    Produtos pr = new Produtos();
+    
+    ls.setNome(&quot;leandro&quot;);
+    ls.setSenha(&quot;leandro123vai&quot;);
+    ls.setSenha(Criptografar.encriptografar(ls.getSenha()));
+         
+    loginJpa.create(ls);
+    funcJpa.create(func);
+    jpa2.create(pr);
+    jpa3.create(end); 
+}
+*/
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -37,6 +37,11 @@ public class FunçõesProdutoTest {
     public void setUp() {
         pd = new Produtos();
         fp = new TestesFuncionais();
+        
+        pd.setNome("Pão");
+        pd.setDescr("Pão Integral");
+        pd.setQtd(1);
+        pd.setPreco(2.0);
     }
 
     @After
@@ -51,31 +56,30 @@ public class FunçõesProdutoTest {
     @Test
     public void nomeValido() throws Exception {
         pd.setNome("Pao de sal com gergilim");
-
-        assertTrue(fp.validaNomeProduto(pd.getNome()));
+        assertTrue(fp.validaProduto(pd));
     }
 
     @Test
     public void nomeValidoMinimo() throws Exception {
         pd.setNome("Pao");
 
-        assertTrue(fp.validaNomeProduto(pd.getNome()));
+        assertTrue(fp.validaProduto(pd));
     }
 
     @Test
     public void nomeValidoMaximo() throws Exception {
         pd.setNome("PaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaooo");
 
-        assertTrue(fp.validaNomeProduto(pd.getNome()));
+        assertTrue(fp.validaProduto(pd));
     }
 
     @Test
     public void nomeNulo() throws Exception {
         pd.setNome("");
         try {
-            assertTrue(fp.validaNomeProduto(pd.getNome()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Nome invalido");
+            assertEquals(ex.getMessage(), "Nome Inválido");
         }
     }
 
@@ -83,20 +87,20 @@ public class FunçõesProdutoTest {
     public void nomePequeno() throws Exception {
         pd.setNome("la");
         try {
-            assertTrue(fp.validaNomeProduto(pd.getNome()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Nome invalido");
+            assertEquals(ex.getMessage(), "Nome Inválido");
         }
     }
 
     @Test
     public void nomeGrande() throws Exception {
-        pd.setNome(" Refrigerantedeváriossaboresfantacocacolaguaranásauhsauhuhsauhsauhsauas");
+        pd.setNome("Refrigerantedeváriossaboresfantacocacolaguaranásauhsauhuhsauhsauhsauas");
 
         try {
-            assertTrue(fp.validaNomeProduto(pd.getNome()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Nome invalido");
+            assertEquals(ex.getMessage(), "Nome Inválido");
         }
     }
 
@@ -104,9 +108,9 @@ public class FunçõesProdutoTest {
     public void nomeSimbolo() throws Exception {
         pd.setNome("Pao!#");
         try {
-            assertTrue(fp.validaNomeProduto(pd.getNome()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Nome invalido");
+            assertEquals(ex.getMessage(), "Nome Inválido");
         }
     }
 
@@ -114,272 +118,225 @@ public class FunçõesProdutoTest {
     public void nomeNumero() throws Exception {
         pd.setNome("Pao123");
         try {
-            assertTrue(fp.validaNomeProduto(pd.getNome()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Nome invalido");
+            assertEquals(ex.getMessage(), "Nome Inválido");
         }
-    }
-
-    @Test
-    public void descrValidoMaximo() throws Exception {
-        pd.setDescr("PaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaooo");
-
-        assertTrue(fp.validaDescriçãoProduto(pd.getDescr()));
     }
 
     @Test
     public void descrValido() throws Exception {
         pd.setDescr("Paooo 123 !#@# ");
-
-        assertTrue(fp.validaDescriçãoProduto(pd.getDescr()));
+        try {
+            assertTrue(fp.validaProduto(pd));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Descrição Inválida");
+        }
     }
 
     @Test
     public void descrInvalida() throws Exception {
         pd.setDescr("PaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaoooPaooo sadkjsdhsabhdkjbsad");
         try {
-            assertTrue(fp.validaDescriçãoProduto(pd.getDescr()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Descrição invalida");
+            assertEquals(ex.getMessage(), "Descrição Inválida");
         }
     }
 
     @Test
-    public void qtdValido() throws Exception {
-        String aux;
-        aux = "12333";
-        assertTrue(fp.quantidadeProduto(aux));
-        pd.setQtd(Integer.parseInt(aux));
-    }
-
-    @Test
-    public void qtdValidoMinimo() throws Exception {
-        String aux;
-        aux = "1";
-        assertTrue(fp.quantidadeProduto(aux));
-        pd.setQtd(Integer.parseInt(aux));
-    }
-
-    @Test
-    public void qtdValidoMaximo() throws Exception {
-        String aux;
-        aux = "99999";
-        assertTrue(fp.quantidadeProduto(aux));
-        pd.setQtd(Integer.parseInt(aux));
-    }
-
-    @Test
-    public void qtdLetra() throws Exception {
-        String aux;
-        aux = "1qw23";
+    public void qtdValido(){
+        pd.setQtd(12333);
         try {
-            assertTrue(fp.quantidadeProduto(aux));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Quantidade invalida");
-            //pd.setQtd(Integer.parseInt(aux)) ;
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
         }
-
     }
 
     @Test
-    public void qtdSimbolo() throws Exception {
-        String aux;
-        aux = "1##23";
+    public void qtdValidoMinimo(){
+        pd.setQtd(1);
         try {
-            assertTrue(fp.quantidadeProduto(aux));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Quantidade invalida");
-            //pd.setQtd(Integer.parseInt(aux)) ;
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
+        }
+    }
+
+    @Test
+    public void qtdValidoMaximo(){
+        pd.setQtd(99999);
+        try {
+            assertTrue(fp.validaProduto(pd));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
+        }
+    }
+
+    @Test
+    public void qtdLetra(){
+        try {
+            assertTrue(fp.validaQuantidadeProduto("1qw23"));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
+        }
+    }
+
+    @Test
+    public void qtdSimbolo(){
+        try {
+            assertTrue(fp.validaQuantidadeProduto("1##23"));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
         }
 
     }
 
     @Test
-    public void qtdEspaco() throws Exception {
+    public void qtdEspaco(){
         String aux;
         aux = "1 123";
         try {
-            assertTrue(fp.quantidadeProduto(aux));
+            assertTrue(fp.validaQuantidadeProduto(aux));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Quantidade invalida");
-            //pd.setQtd(Integer.parseInt(aux)) ;
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
         }
-
     }
 
     @Test
-    public void qtdNull() throws Exception {
+    public void qtdNull(){
         String aux;
         aux = "";
         try {
-            assertTrue(fp.quantidadeProduto(aux));
+            assertTrue(fp.validaQuantidadeProduto(aux));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Quantidade invalida");
-            //pd.setQtd(Integer.parseInt(aux)) ;
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
         }
 
     }
 
     @Test
-    public void qtdNegativo() throws Exception {
-        String aux;
-        aux = "-1";
+    public void qtdNegativo(){
+        pd.setQtd(-1);
         try {
-            assertTrue(fp.quantidadeProduto(aux));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Quantidade invalida");
-            //pd.setQtd(Integer.parseInt(aux)) ;
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
         }
-
     }
 
     @Test
-    public void qtdMaior() throws Exception {
-        String aux;
-        aux = "100001";
+    public void qtdMaior(){
+        pd.setQtd(100001);
         try {
-            assertTrue(fp.quantidadeProduto(aux));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Quantidade invalida");
-            //pd.setQtd(Integer.parseInt(aux)) ;
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
         }
-
     }
     
     @Test
-    public void precoValido() throws Exception {
+    public void qtdMenor(){
+        try {
+            assertTrue(fp.validaQuantidadeProduto(""));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
+        }
+    }
+    
+    @Test
+    public void qtdMaior2(){
+        try {
+            assertTrue(fp.validaQuantidadeProduto("akdjfhef"));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Quantidade Inválida");
+        }
+    }
+    
+    @Test
+    public void precoValido(){
         pd.setPreco(246.00);
-        assertTrue(fp.validaPreco(pd.getPreco()));
+        try {
+            assertTrue(fp.validaProduto(pd));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
+    }
+    
+    @Test
+    public void precoInvalidoMaior2(){
+        pd.setPreco(24600000.00);
+        try {
+            assertTrue(fp.validaProduto(pd));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
     }
 
     @Test
-    public void precoValidoMaior() throws Exception {
+    public void precoValidoMaior(){
         pd.setPreco(1000000.00);
-        assertTrue(fp.validaPreco(pd.getPreco()));
-    }
-
-    @Test
-    public void precoValidoMenor() throws Exception {
-        pd.setPreco(00.00);
-        assertTrue(fp.validaPreco(pd.getPreco()));
-    }
-
-    @Test
-    public void precoInvalidoNull() throws Exception {
-        String aux;
-        aux = "";
-        assertFalse(aux, false);
+        try {
+            assertTrue(fp.validaProduto(pd));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
     }
 
     @Test
     public void precoInvalidoLetra() throws Exception {
-        String aux;
-        aux = "jkas2899lsa3";
-        assertFalse(aux, false);
+        try {
+            assertTrue(fp.validaPreco("jksa3"));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
     }
 
     @Test
-    public void precoInvalidoSimbolo() throws Exception {
-        String aux;
-        aux = "%87[{98}3*%&";
-        assertFalse(aux, false);
+    public void precoInvalidoSimbolo(){
+        try {
+            assertTrue(fp.validaPreco("%87&"));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
+    }
+    
+    @Test
+    public void precoInvalidoMenor(){
+        try {
+            assertTrue(fp.validaPreco(""));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
     }
 
     @Test
-    public void precoInvalidoEspaço() throws Exception {
-        String aux;
-        aux = "123234 123231.98";
-        assertFalse(aux, false);
+    public void precoInvalidoEspaço(){
+        try {
+            assertTrue(fp.validaPreco("123234 123231.98"));
+        } catch (Exception ex) {
+            assertEquals(ex.getMessage(), "Preço Inválido");
+        }
     }
 
     @Test
     public void precoInvalidoNegativo() throws Exception {
         pd.setPreco(-2.00);
         try {
-            assertTrue(fp.validaPreco(pd.getPreco()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Preço invalido");
+            assertEquals(ex.getMessage(), "Preço Inválido");
         }
-
     }
 
     @Test
     public void precoInvalidoMaior() throws Exception {
         pd.setPreco(1000001.00);
         try {
-            assertTrue(fp.validaPreco(pd.getPreco()));
+            assertTrue(fp.validaProduto(pd));
         } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Preço invalido");
+            assertEquals(ex.getMessage(), "Preço Inválido");
         }
-
     }
-    
-    @Test
-    public void codigoValido() throws Exception {
-        pd.setIdProduto(5);
-        assertTrue(fp.validaIdProduto(pd.getIdProduto()));
-    }
-
-    @Test
-    public void IdProdutoValidoMaior() throws Exception {
-        pd.setIdProduto(1000000);
-        assertTrue(fp.validaIdProduto(pd.getIdProduto()));
-    }
-
-    @Test
-    public void IdProdutoValidoMenor() throws Exception {
-        pd.setIdProduto(1);
-        assertTrue(fp.validaIdProduto(pd.getIdProduto()));
-    }
-
-    @Test
-    public void IdProdutoInvalidoNull() throws Exception {
-        String aux;
-        aux = "";
-        assertFalse(aux, false);
-    }
-
-    @Test
-    public void IdProdutoInvalidoLetra() throws Exception {
-        String aux;
-        aux = "jkas2899lsa3";
-        assertFalse(aux, false);
-    }
-
-    @Test
-    public void IdProdutoInvalidoSimbolo() throws Exception {
-        String aux;
-        aux = "%87[{98}3*%&";
-        assertFalse(aux, false);
-    }
-
-    @Test
-    public void IdProdutoInvalidoEspaço() throws Exception {
-        String aux;
-        aux = "123234 123231.98";
-        assertFalse(aux, false);
-    }
-
-    @Test
-    public void IdProdutoInvalidoNegativo() throws Exception {
-        pd.setIdProduto(-2);
-        try {
-            assertTrue(fp.validaIdProduto(pd.getIdProduto()));
-        } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Codigo Produto invalido");
-        }
-
-    }
-
-    @Test
-    public void IdProdutoInvalidoMaior() throws Exception {
-        pd.setIdProduto(1000001);
-        try {
-            assertTrue(fp.validaIdProduto(pd.getIdProduto()));
-        } catch (Exception ex) {
-            assertEquals(ex.getMessage(), "Codigo Produto invalido");
-        }
-
-    }
-
 }

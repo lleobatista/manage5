@@ -497,7 +497,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="900" y="520" width="90" height="40"/>
+                  <AbsoluteConstraints x="890" y="510" width="110" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -982,6 +982,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="btvisFuncAtuFunc">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btvisFuncAtuFuncMouseClicked"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="20" y="250" width="420" height="60"/>

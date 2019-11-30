@@ -37,6 +37,9 @@ public class FunçõesLoginTest {
     public void setUp() {
         login = new LoginSenha();
         fp = new TestesFuncionais();
+        
+        login.setNome("leandrobertoldi@alunos.utfpr.edu.br");
+        login.setSenha("leandro123vai");
     }
     
     @After
@@ -47,8 +50,8 @@ public class FunçõesLoginTest {
     public void emailValido(){
         login.setNome("leandrobertoldi@alunos.utfpr.edu.br");
         
-         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+        try {
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -59,7 +62,7 @@ public class FunçõesLoginTest {
         login.setNome("");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -70,7 +73,7 @@ public class FunçõesLoginTest {
         login.setNome("lea@com");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -81,7 +84,7 @@ public class FunçõesLoginTest {
         login.setNome("lea @gmail.com");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -92,7 +95,7 @@ public class FunçõesLoginTest {
         login.setNome("leandrobertoldigmail.com.br");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -103,7 +106,7 @@ public class FunçõesLoginTest {
         login.setNome("@gmail.com.br");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -114,7 +117,7 @@ public class FunçõesLoginTest {
         login.setNome("leandrobertold@");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -125,7 +128,7 @@ public class FunçõesLoginTest {
         login.setNome("leandro@alinos.");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -136,7 +139,7 @@ public class FunçõesLoginTest {
         login.setNome("$%#$%()leandrobertoldi@alunos.utfpr.edu.br");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -147,7 +150,7 @@ public class FunçõesLoginTest {
         login.setNome("leandrobertoldi@alunos.!@#$&().com");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -158,7 +161,7 @@ public class FunçõesLoginTest {
         login.setNome("le@a");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -169,7 +172,7 @@ public class FunçõesLoginTest {
         login.setNome("leandrobertoldi@alunos.utfpr.edu.br.gmail.hotmail.outlook.oul.gov.utfpr.edu.br.gmail.hotmail.outlook.oul.gov");
         
         try {
-            assertTrue(fp.validaEmail(login.getNome()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "E-mail inválido");
         }
@@ -180,7 +183,7 @@ public class FunçõesLoginTest {
         login.setSenha("1234E&qç");
         
         try {
-            assertTrue(fp.validaSenha(login.getSenha()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Senha inválida");
         }
@@ -191,7 +194,7 @@ public class FunçõesLoginTest {
         login.setSenha("1234");
         
         try {
-            assertTrue(fp.validaSenha(login.getSenha()));
+            assertTrue(fp.validaLogin(login));
         } catch (Exception ex) {
             assertEquals(ex.getMessage(), "Senha inválida");
         }
