@@ -15,8 +15,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import br.com.Cadastro.PosteGreJPA.Funcionario;
+import br.com.Cadastro.PosteGreJPA.exceptions.NonexistentEntityException;
 import br.com.Comprovante_end.Comprovante_end;
 import br.com.Produtos.Produtos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,13 +58,42 @@ public class Aplicativo {
         return lista;
     }
     
+    //Metodo busca funcionario
+    public Funcionario buscaFunc(Integer id){
+        return funcJpa.findFuncionario(id);
+    }
+    
+    //Metodo busca produto
+    public Produtos buscaProd(Integer id){
+        return prodJpa.findProdutos(id);
+    }
+    
     //Método Cadastra Produto
     public void cadProduto(Produtos prod){
         prodJpa.create(prod);
     }
+    
     //Método Cadastra Funcionario
     public void cadFunc(Funcionario func){
         funcJpa.create(func);
+    }
+    
+    //Métod deletar produto
+    public void delProd(Integer id){
+        try {
+            prodJpa.destroy(id);
+        } catch (br.com.Produtos.exceptions.NonexistentEntityException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao deletar produto");
+        }
+    }
+    
+    //Métod deletar funcionario
+    public void delFunc(Integer id){
+        try {
+            funcJpa.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao deletar funcionario");
+        }
     }
 }
 

@@ -37,6 +37,21 @@ public class Desktop extends javax.swing.JFrame {
         
     }
     
+    //Método para atualizar Funcionário
+    public void atuFuncionario(Integer id){
+        Funcionario func = new Funcionario();
+        Aplicativo app = new Aplicativo();
+        func = app.buscaFunc(id);
+        
+    }
+    
+    //Método para atualizar Produto
+    public void atuProduto(Integer id){
+        Produtos prod = new Produtos();
+        Aplicativo app = new Aplicativo();
+        prod = app.buscaProd(id);
+    }
+    
     //Método para carregar tabela Produtos
     public void carregaTabelaProduto(){
         DefaultTableModel modelo = (DefaultTableModel) jTableProdutos.getModel();
@@ -180,6 +195,7 @@ public class Desktop extends javax.swing.JFrame {
         btatualizarVisFunc = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFuncionario = new javax.swing.JTable();
+        btdelFuncionario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanelcadProduto = new javax.swing.JPanel();
         btcadFuncCadProd = new javax.swing.JLabel();
@@ -200,6 +216,7 @@ public class Desktop extends javax.swing.JFrame {
         btatualizarAtuProd = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableProdutos = new javax.swing.JTable();
+        btdelProduto = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanelatuFuncionario = new javax.swing.JPanel();
         btcadFuncAtuFunc = new javax.swing.JLabel();
@@ -531,6 +548,14 @@ public class Desktop extends javax.swing.JFrame {
         jPanelvisFuncionario.add(jScrollPane1);
         jScrollPane1.setBounds(480, 110, 530, 402);
 
+        btdelFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btdelFuncionarioMouseClicked(evt);
+            }
+        });
+        jPanelvisFuncionario.add(btdelFuncionario);
+        btdelFuncionario.setBounds(770, 520, 110, 40);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Funcionário.png"))); // NOI18N
         jPanelvisFuncionario.add(jLabel3);
         jLabel3.setBounds(0, 0, 1024, 576);
@@ -672,6 +697,14 @@ public class Desktop extends javax.swing.JFrame {
 
         jPanelvisProduto.add(jScrollPane2);
         jScrollPane2.setBounds(480, 110, 530, 402);
+
+        btdelProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btdelProdutoMouseClicked(evt);
+            }
+        });
+        jPanelvisProduto.add(btdelProduto);
+        btdelProduto.setBounds(770, 510, 110, 50);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Visualizar Produto.png"))); // NOI18N
         jPanelvisProduto.add(jLabel5);
@@ -1119,8 +1152,13 @@ public class Desktop extends javax.swing.JFrame {
     }//GEN-LAST:event_btcadProdVisProdMouseClicked
 
     private void btatualizarVisFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btatualizarVisFuncMouseClicked
-        CardLayout cl = (CardLayout) jPanel1.getLayout();
-        cl.show(jPanel1, "atuFuncionario");
+        if((Integer)jTableFuncionario.getModel().getValueAt(jTableFuncionario.getSelectedRow(), 0) != -1){
+            atuFuncionario((Integer) jTableFuncionario.getModel().getValueAt(jTableFuncionario.getSelectedRow(), 0));
+            CardLayout cl = (CardLayout) jPanel1.getLayout();
+            cl.show(jPanel1, "atuFuncionario");
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione um funcionário");
+        }     
     }//GEN-LAST:event_btatualizarVisFuncMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -1188,8 +1226,13 @@ public class Desktop extends javax.swing.JFrame {
     }//GEN-LAST:event_cpfCadFuncActionPerformed
 
     private void btatualizarAtuProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btatualizarAtuProdMouseClicked
-        CardLayout cl = (CardLayout) jPanel1.getLayout();
-        cl.show(jPanel1, "atuProduto");
+        if((Integer)jTableProdutos.getModel().getValueAt(jTableProdutos.getSelectedRow(), 0) != -1){
+            atuProduto((Integer) jTableProdutos.getModel().getValueAt(jTableProdutos.getSelectedRow(), 0));
+            CardLayout cl = (CardLayout) jPanel1.getLayout();
+            cl.show(jPanel1, "atuProduto");
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione um produto");
+        }         
     }//GEN-LAST:event_btatualizarAtuProdMouseClicked
 
     private void btcancelarAtuProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcancelarAtuProdMouseClicked
@@ -1269,6 +1312,26 @@ public class Desktop extends javax.swing.JFrame {
         carregaTabelaFuncionario();
     }//GEN-LAST:event_btvisFuncAtuFuncMouseClicked
 
+    private void btdelProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btdelProdutoMouseClicked
+        Integer escolha = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o produto?", "Excluir produto", JOptionPane.YES_NO_CANCEL_OPTION);
+        if(escolha==JOptionPane.YES_OPTION){
+            Aplicativo app = new Aplicativo();
+            app.delProd((Integer) jTableProdutos.getModel().getValueAt(jTableProdutos.getSelectedRow(), 0));
+            JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
+            carregaTabelaProduto();
+        }
+    }//GEN-LAST:event_btdelProdutoMouseClicked
+
+    private void btdelFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btdelFuncionarioMouseClicked
+        Integer escolha = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o funcionáiro?", "Excluir funcionário", JOptionPane.YES_NO_CANCEL_OPTION);
+        if(escolha==JOptionPane.YES_OPTION){
+            Aplicativo app = new Aplicativo();
+            app.delFunc((Integer) jTableFuncionario.getModel().getValueAt(jTableFuncionario.getSelectedRow(), 0));
+            JOptionPane.showMessageDialog(null, "Funcionario deletado com sucesso");
+            carregaTabelaFuncionario();
+        }
+    }//GEN-LAST:event_btdelFuncionarioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1329,6 +1392,8 @@ public class Desktop extends javax.swing.JFrame {
     private javax.swing.JLabel btcancelarAtuProd;
     private javax.swing.JLabel btcancelarCadFunc;
     private javax.swing.JLabel btcancelarCadProd;
+    private javax.swing.JLabel btdelFuncionario;
+    private javax.swing.JLabel btdelProduto;
     private javax.swing.JLabel btvisFuncAtuFunc;
     private javax.swing.JLabel btvisFuncAtuProd;
     private javax.swing.JLabel btvisFuncCadFunc;
