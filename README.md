@@ -1,3 +1,3 @@
 # manage5
-Software desenvolvido para pagamentos do RU com o crachá na UTFPR-CP.
-Disciplina de Engenharia de Software.
+Software developed for university restaurant payments with the UTFPR-CP badge.
+Software Engineering
