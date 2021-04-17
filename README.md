@@ -1,2 +1,3 @@
 # manage5
-Software developed for university restaurant payments with the UTFPR-CP badge.
+
+Software developed to help university's restaurant payments with UTFPR-CP badge.
